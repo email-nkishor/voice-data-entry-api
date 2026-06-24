@@ -14,6 +14,16 @@ function resolveDbDriver(): DbDriver {
 
 const dbDriver = resolveDbDriver();
 
+function resolveCorsOrigins(): string[] {
+  if (process.env.CORS_ORIGIN) {
+    return process.env.CORS_ORIGIN.split(',')
+      .map((origin) => origin.trim())
+      .filter(Boolean);
+  }
+
+  return ['http://localhost:4200', 'https://your-project.vercel.app'];
+}
+
 export const config = {
   port: Number(process.env.PORT) || 3000,
   jwtSecret: process.env.JWT_SECRET || 'dev-secret-change-in-production',
@@ -23,5 +33,5 @@ export const config = {
     (dbDriver === 'sqlite'
       ? path.join(__dirname, '../data/institute.sqlite')
       : path.join(__dirname, '../data/institute.db')),
-  corsOrigin: process.env.CORS_ORIGIN || 'http://localhost:4200',
+  corsOrigins: resolveCorsOrigins(),
 };

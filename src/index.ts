@@ -8,6 +8,6 @@ const app = createApp();
 
 app.listen(config.port, () => {
   console.log(`Voice Data Entry API running on http://localhost:${config.port}`);
-  console.log(`CORS origin: ${config.corsOrigin}`);
+  console.log(`CORS origins: ${config.corsOrigins.join(', ')}`);
   console.log('Default users: admin@institute.local / admin123');
 });
