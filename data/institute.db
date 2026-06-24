@@ -1,0 +1,621 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@institute.local",
+      "password_hash": "$2b$10$2p516oijaAeP.nWlOw1v9.EyEztSnWdczubtvyHet75A6RB/j86QO",
+      "name": "Institute Admin",
+      "role": "admin",
+      "created_at": "2026-06-24T08:57:41.628Z"
+    },
+    {
+      "id": 2,
+      "email": "clerk@institute.local",
+      "password_hash": "$2b$10$94ZTJqOxppFUl.TsDASW6O8iAt65PFX/0XcTxFp82qSZZG/qgj2uK",
+      "name": "Admission Clerk",
+      "role": "admission_clerk",
+      "created_at": "2026-06-24T08:57:41.679Z"
+    },
+    {
+      "id": 3,
+      "email": "teacher@institute.local",
+      "password_hash": "$2b$10$23Q2UTHi.ppX5QLMoFgVMe6NtyKFjGNaD4m4OsU53xGvTjuSEcSnS",
+      "name": "Class Teacher",
+      "role": "teacher",
+      "created_at": "2026-06-24T08:57:41.729Z"
+    }
+  ],
+  "studentGroups": [
+    {
+      "id": 1,
+      "name": "General Admission",
+      "description": "Default student group",
+      "is_default": 1,
+      "client_id": null,
+      "created_at": "2026-06-24T08:57:41.729Z"
+    },
+    {
+      "id": 2,
+      "name": "MCA Batch 2026",
+      "description": "Master of Computer Applications",
+      "is_default": 0,
+      "client_id": null,
+      "created_at": "2026-06-24T08:57:41.729Z"
+    },
+    {
+      "id": 3,
+      "name": "BCA Batch 2026",
+      "description": "Bachelor of Computer Applications",
+      "is_default": 0,
+      "client_id": null,
+      "created_at": "2026-06-24T08:57:41.729Z"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "name": "nandkishor",
+      "class": "MCA",
+      "roll_no": "3232",
+      "mobile": "9716694602",
+      "address": "nivaaji Tola Chhapra Bihar",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 1,
+      "created_at": "2026-06-24T09:03:13.879Z",
+      "updated_at": "2026-06-24T09:03:13.879Z"
+    },
+    {
+      "id": 2,
+      "name": "Shweta Kumari",
+      "class": "BSc",
+      "roll_no": "232312",
+      "mobile": "6512984533",
+      "address": "Chhapra nimadi Tola",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 2,
+      "created_at": "2026-06-24T09:03:13.901Z",
+      "updated_at": "2026-06-24T09:03:13.901Z"
+    },
+    {
+      "id": 3,
+      "name": "Nand kishor",
+      "class": "10",
+      "roll_no": "512",
+      "mobile": "9713394602",
+      "address": "353 Second Floor Village Resort Noida",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 3,
+      "created_at": "2026-06-24T09:03:13.901Z",
+      "updated_at": "2026-06-24T09:03:13.902Z"
+    },
+    {
+      "id": 4,
+      "name": "Nand Kishor",
+      "class": "11",
+      "roll_no": "4356",
+      "mobile": "1235679899",
+      "address": "Ghijhor Noida Delhi",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 4,
+      "created_at": "2026-06-24T09:03:13.901Z",
+      "updated_at": "2026-06-24T09:03:13.901Z"
+    },
+    {
+      "id": 5,
+      "name": "Jitendra Kumar",
+      "class": "12",
+      "roll_no": "550",
+      "mobile": "1234567890",
+      "address": "Khanpur",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 5,
+      "created_at": "2026-06-24T09:03:13.902Z",
+      "updated_at": "2026-06-24T09:03:13.902Z"
+    },
+    {
+      "id": 6,
+      "name": "Jitendra Kumar Gupta",
+      "class": "MCA final year",
+      "roll_no": "234562",
+      "mobile": "2323457823",
+      "address": "Kanpur Paschim Gali",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 6,
+      "created_at": "2026-06-24T09:03:13.903Z",
+      "updated_at": "2026-06-24T09:03:13.903Z"
+    },
+    {
+      "id": 7,
+      "name": "Jitesh kumar",
+      "class": "fifth",
+      "roll_no": "23456",
+      "mobile": "1234543216",
+      "address": "Chapra",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 7,
+      "created_at": "2026-06-24T09:03:13.903Z",
+      "updated_at": "2026-06-24T09:03:13.904Z"
+    },
+    {
+      "id": 8,
+      "name": "नंद किशोर",
+      "class": "छठी",
+      "roll_no": "12345",
+      "mobile": "9716694602",
+      "address": "C 53 नोएडा",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 8,
+      "created_at": "2026-06-24T09:03:13.904Z",
+      "updated_at": "2026-06-24T09:03:13.905Z"
+    },
+    {
+      "id": 9,
+      "name": "नंदकिशोर",
+      "class": "5 th",
+      "roll_no": "123",
+      "mobile": "9797694602",
+      "address": "रेपुरा",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{\"Grade\":\"एवरेज\"}",
+      "client_id": 9,
+      "created_at": "2026-06-24T09:03:13.905Z",
+      "updated_at": "2026-06-24T09:03:13.905Z"
+    },
+    {
+      "id": 10,
+      "name": "Nand Kishore",
+      "class": "MCA",
+      "roll_no": "123",
+      "mobile": "9716694602",
+      "address": "Shreya Chopra Vihar",
+      "admission_no": "1234 ParentsHari Bhajan Singh parents Mobile number 12345",
+      "parent_name": "",
+      "parent_mobile": "",
+      "academic_year": "2026-2027",
+      "section": "C",
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 10,
+      "created_at": "2026-06-24T09:07:43.801Z",
+      "updated_at": "2026-06-24T09:07:43.801Z"
+    },
+    {
+      "id": 11,
+      "name": "nandkishor",
+      "class": "s 11",
+      "roll_no": "5353",
+      "mobile": "9717645602",
+      "address": "ess Chhapra Bihar nivaaji Tola Sharma Tola Paida Ho Khanpur shalayampur",
+      "admission_no": "",
+      "parent_name": "",
+      "parent_mobile": "",
+      "academic_year": "2026-2027",
+      "section": "",
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{\"Grade\":\"pass\"}",
+      "client_id": 11,
+      "created_at": "2026-06-24T09:52:23.230Z",
+      "updated_at": "2026-06-24T09:52:23.230Z"
+    },
+    {
+      "id": 13,
+      "name": "nandkishor",
+      "class": "Class 10",
+      "roll_no": "5",
+      "mobile": "1234567890",
+      "address": "ess Noida",
+      "admission_no": "",
+      "parent_name": "",
+      "parent_mobile": "",
+      "academic_year": "2026-2027",
+      "section": "",
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{\"Grade\":\"pass\"}",
+      "client_id": 13,
+      "created_at": "2026-06-24T12:39:45.938Z",
+      "updated_at": "2026-06-24T12:39:45.938Z"
+    }
+  ],
+  "studentActivities": [
+    {
+      "id": 1,
+      "student_id": 1,
+      "action": "create",
+      "message": "Student (STU0000001) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 2,
+      "student_id": 2,
+      "action": "create",
+      "message": "Student (STU0000002) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 3,
+      "student_id": 2,
+      "action": "update",
+      "message": "Student (STU0000002) updated",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 4,
+      "student_id": 3,
+      "action": "create",
+      "message": "Student (STU0000003) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 5,
+      "student_id": 4,
+      "action": "create",
+      "message": "Student (STU0000004) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 6,
+      "student_id": 3,
+      "action": "update",
+      "message": "Student (STU0000003) updated",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 7,
+      "student_id": 5,
+      "action": "create",
+      "message": "Student (STU0000005) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 8,
+      "student_id": 6,
+      "action": "create",
+      "message": "Student (STU0000006) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 9,
+      "student_id": 7,
+      "action": "create",
+      "message": "Student (STU0000007) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 10,
+      "student_id": 7,
+      "action": "update",
+      "message": "Student (STU0000007) updated",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 11,
+      "student_id": 8,
+      "action": "create",
+      "message": "Student (STU0000008) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 12,
+      "student_id": 8,
+      "action": "update",
+      "message": "Student (STU0000008) updated",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 13,
+      "student_id": 8,
+      "action": "update",
+      "message": "Student (STU0000008) updated",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 14,
+      "student_id": 9,
+      "action": "create",
+      "message": "Student (STU0000009) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 15,
+      "student_id": 10,
+      "action": "create",
+      "message": "Student (STU0000010) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 16,
+      "student_id": 11,
+      "action": "create",
+      "message": "Student (STU0000011) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 20,
+      "student_id": 13,
+      "action": "create",
+      "message": "Student (STU0000013) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    }
+  ],
+  "lookups": {
+    "class": [
+      {
+        "value": "Class 1",
+        "label": "Class 1"
+      },
+      {
+        "value": "Class 2",
+        "label": "Class 2"
+      },
+      {
+        "value": "Class 3",
+        "label": "Class 3"
+      },
+      {
+        "value": "Class 4",
+        "label": "Class 4"
+      },
+      {
+        "value": "Class 5",
+        "label": "Class 5"
+      },
+      {
+        "value": "Class 6",
+        "label": "Class 6"
+      },
+      {
+        "value": "Class 7",
+        "label": "Class 7"
+      },
+      {
+        "value": "Class 8",
+        "label": "Class 8"
+      },
+      {
+        "value": "Class 9",
+        "label": "Class 9"
+      },
+      {
+        "value": "Class 10",
+        "label": "Class 10"
+      },
+      {
+        "value": "Class 11",
+        "label": "Class 11"
+      },
+      {
+        "value": "Class 12",
+        "label": "Class 12"
+      },
+      {
+        "value": "B.Tech",
+        "label": "B.Tech"
+      },
+      {
+        "value": "M.Tech",
+        "label": "M.Tech"
+      },
+      {
+        "value": "MCA",
+        "label": "MCA"
+      },
+      {
+        "value": "MBA",
+        "label": "MBA"
+      },
+      {
+        "value": "BCA",
+        "label": "BCA"
+      }
+    ],
+    "grade": [
+      {
+        "value": "A+",
+        "label": "A+"
+      },
+      {
+        "value": "A",
+        "label": "A"
+      },
+      {
+        "value": "B+",
+        "label": "B+"
+      },
+      {
+        "value": "B",
+        "label": "B"
+      },
+      {
+        "value": "C",
+        "label": "C"
+      },
+      {
+        "value": "D",
+        "label": "D"
+      }
+    ],
+    "section": [
+      {
+        "value": "A",
+        "label": "Section A"
+      },
+      {
+        "value": "B",
+        "label": "Section B"
+      },
+      {
+        "value": "C",
+        "label": "Section C"
+      },
+      {
+        "value": "D",
+        "label": "Section D"
+      }
+    ],
+    "status": [
+      {
+        "value": "new_admission",
+        "label": "New Admission"
+      },
+      {
+        "value": "pending_approval",
+        "label": "Pending Approval"
+      },
+      {
+        "value": "pending_docs",
+        "label": "Pending Documents"
+      },
+      {
+        "value": "active",
+        "label": "Active"
+      },
+      {
+        "value": "on_leave",
+        "label": "On Leave"
+      },
+      {
+        "value": "graduated",
+        "label": "Graduated"
+      },
+      {
+        "value": "inactive",
+        "label": "Inactive"
+      }
+    ],
+    "feeStatus": [
+      {
+        "value": "paid",
+        "label": "Paid"
+      },
+      {
+        "value": "partial",
+        "label": "Partial"
+      },
+      {
+        "value": "overdue",
+        "label": "Overdue"
+      },
+      {
+        "value": "not_applicable",
+        "label": "Not Applicable"
+      }
+    ]
+  },
+  "nextIds": {
+    "users": 4,
+    "studentGroups": 4,
+    "students": 14,
+    "studentActivities": 21
+  }
+}
