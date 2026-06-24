@@ -14,14 +14,39 @@ function resolveDbDriver(): DbDriver {
 
 const dbDriver = resolveDbDriver();
 
+const DEFAULT_CORS_ORIGINS = [
+  'http://localhost:4200',
+  'http://127.0.0.1:4200',
+  'https://voice-data-entry-web.vercel.app',
+];
+
 function resolveCorsOrigins(): string[] {
-  if (process.env.CORS_ORIGIN) {
-    return process.env.CORS_ORIGIN.split(',')
-      .map((origin) => origin.trim())
-      .filter(Boolean);
+  const fromEnv = process.env.CORS_ORIGIN
+    ? process.env.CORS_ORIGIN.split(',')
+        .map((origin) => origin.trim())
+        .filter(Boolean)
+    : [];
+
+  return [...new Set([...DEFAULT_CORS_ORIGINS, ...fromEnv])];
+}
+
+const corsOrigins = resolveCorsOrigins();
+
+/** Allows configured origins, any *.vercel.app preview URL, and local dev ports. */
+export function isCorsOriginAllowed(origin: string | undefined): boolean {
+  if (!origin) {
+    return true;
   }
 
-  return ['http://localhost:4200', 'https://your-project.vercel.app'];
+  if (corsOrigins.includes(origin)) {
+    return true;
+  }
+
+  if (/^https:\/\/[\w-]+\.vercel\.app$/.test(origin)) {
+    return true;
+  }
+
+  return /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
 }
 
 export const config = {
@@ -33,5 +58,5 @@ export const config = {
     (dbDriver === 'sqlite'
       ? path.join(__dirname, '../data/institute.sqlite')
       : path.join(__dirname, '../data/institute.db')),
-  corsOrigins: resolveCorsOrigins(),
+  corsOrigins,
 };

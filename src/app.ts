@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { config } from './config';
+import { config, isCorsOriginAllowed } from './config';
 import { seedDefaultGroups, seedDefaultUsers } from './services/auth.service';
 import { seedDefaultLookups } from './services/lookups.service';
 import authRoutes from './routes/auth.routes';
@@ -15,8 +15,17 @@ export function createApp() {
 
   app.use(
     cors({
-      origin: config.corsOrigins,
+      origin(origin, callback) {
+        if (isCorsOriginAllowed(origin)) {
+          callback(null, origin ?? true);
+        } else {
+          console.warn(`CORS blocked origin: ${origin}`);
+          callback(null, false);
+        }
+      },
       credentials: true,
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
     })
   );
   app.use(express.json({ limit: '2mb' }));
