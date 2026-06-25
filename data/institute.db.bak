@@ -1,0 +1,1421 @@
+{
+  "organizations": [
+    {
+      "id": 1,
+      "name": "Default Institute",
+      "code": "DEFAULT",
+      "settings_json": "{\"timezone\":\"Asia/Kolkata\",\"academicYear\":\"2025-26\"}",
+      "created_at": "2026-06-25T05:33:38.360Z",
+      "updated_at": "2026-06-25T05:33:38.360Z"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@institute.local",
+      "password_hash": "$2b$10$2p516oijaAeP.nWlOw1v9.EyEztSnWdczubtvyHet75A6RB/j86QO",
+      "name": "Institute Admin",
+      "role": "admin",
+      "created_at": "2026-06-24T08:57:41.628Z"
+    },
+    {
+      "id": 2,
+      "email": "clerk@institute.local",
+      "password_hash": "$2b$10$94ZTJqOxppFUl.TsDASW6O8iAt65PFX/0XcTxFp82qSZZG/qgj2uK",
+      "name": "Admission Clerk",
+      "role": "admission_clerk",
+      "created_at": "2026-06-24T08:57:41.679Z"
+    },
+    {
+      "id": 3,
+      "email": "teacher@institute.local",
+      "password_hash": "$2b$10$23Q2UTHi.ppX5QLMoFgVMe6NtyKFjGNaD4m4OsU53xGvTjuSEcSnS",
+      "name": "Class Teacher",
+      "role": "teacher",
+      "created_at": "2026-06-24T08:57:41.729Z"
+    }
+  ],
+  "permissions": [
+    {
+      "id": 1,
+      "module": "student",
+      "action": "create",
+      "description": "Create student records"
+    },
+    {
+      "id": 2,
+      "module": "student",
+      "action": "edit",
+      "description": "Edit student records"
+    },
+    {
+      "id": 3,
+      "module": "student",
+      "action": "delete",
+      "description": "Delete student records"
+    },
+    {
+      "id": 4,
+      "module": "student",
+      "action": "view",
+      "description": "View all students"
+    },
+    {
+      "id": 5,
+      "module": "student",
+      "action": "view_self",
+      "description": "View own student profile"
+    },
+    {
+      "id": 6,
+      "module": "group",
+      "action": "create",
+      "description": "Create groups"
+    },
+    {
+      "id": 7,
+      "module": "group",
+      "action": "modify",
+      "description": "Modify groups"
+    },
+    {
+      "id": 8,
+      "module": "group",
+      "action": "assign",
+      "description": "Assign students to groups"
+    },
+    {
+      "id": 9,
+      "module": "group",
+      "action": "view",
+      "description": "View groups"
+    },
+    {
+      "id": 10,
+      "module": "event",
+      "action": "create",
+      "description": "Create events"
+    },
+    {
+      "id": 11,
+      "module": "event",
+      "action": "edit",
+      "description": "Edit events"
+    },
+    {
+      "id": 12,
+      "module": "event",
+      "action": "delete",
+      "description": "Delete events"
+    },
+    {
+      "id": 13,
+      "module": "event",
+      "action": "view",
+      "description": "View all events"
+    },
+    {
+      "id": 14,
+      "module": "event",
+      "action": "view_own",
+      "description": "View own events"
+    },
+    {
+      "id": 15,
+      "module": "user",
+      "action": "manage",
+      "description": "Manage users"
+    },
+    {
+      "id": 16,
+      "module": "attendance",
+      "action": "mark",
+      "description": "Mark attendance"
+    },
+    {
+      "id": 17,
+      "module": "attendance",
+      "action": "view",
+      "description": "View attendance"
+    },
+    {
+      "id": 18,
+      "module": "attendance",
+      "action": "view_self",
+      "description": "View own attendance"
+    },
+    {
+      "id": 19,
+      "module": "attendance",
+      "action": "view_child",
+      "description": "View child attendance"
+    },
+    {
+      "id": 20,
+      "module": "certificate",
+      "action": "create",
+      "description": "Create certificates"
+    },
+    {
+      "id": 21,
+      "module": "certificate",
+      "action": "view",
+      "description": "View certificates"
+    },
+    {
+      "id": 22,
+      "module": "certificate",
+      "action": "view_self",
+      "description": "View own certificates"
+    },
+    {
+      "id": 23,
+      "module": "certificate",
+      "action": "view_child",
+      "description": "View child certificates"
+    },
+    {
+      "id": 24,
+      "module": "voice",
+      "action": "create",
+      "description": "Create voice entries"
+    },
+    {
+      "id": 25,
+      "module": "voice",
+      "action": "view",
+      "description": "View voice entry history"
+    },
+    {
+      "id": 26,
+      "module": "custom_field",
+      "action": "manage",
+      "description": "Manage custom field definitions"
+    },
+    {
+      "id": 27,
+      "module": "report",
+      "action": "view",
+      "description": "View reports and dashboards"
+    },
+    {
+      "id": 28,
+      "module": "parent",
+      "action": "view_child_profile",
+      "description": "View child profile"
+    },
+    {
+      "id": 29,
+      "module": "parent",
+      "action": "view_child_events",
+      "description": "View child events"
+    },
+    {
+      "id": 30,
+      "module": "parent",
+      "action": "view_child_achievements",
+      "description": "View child achievements"
+    },
+    {
+      "id": 31,
+      "module": "organization",
+      "action": "manage",
+      "description": "Manage organization settings"
+    }
+  ],
+  "rolePermissions": [
+    {
+      "id": 1,
+      "role": "admin",
+      "permission_id": 1,
+      "scope": "all"
+    },
+    {
+      "id": 2,
+      "role": "admin",
+      "permission_id": 2,
+      "scope": "all"
+    },
+    {
+      "id": 3,
+      "role": "admin",
+      "permission_id": 3,
+      "scope": "all"
+    },
+    {
+      "id": 4,
+      "role": "admin",
+      "permission_id": 4,
+      "scope": "all"
+    },
+    {
+      "id": 5,
+      "role": "admin",
+      "permission_id": 5,
+      "scope": "all"
+    },
+    {
+      "id": 6,
+      "role": "admin",
+      "permission_id": 6,
+      "scope": "all"
+    },
+    {
+      "id": 7,
+      "role": "admin",
+      "permission_id": 7,
+      "scope": "all"
+    },
+    {
+      "id": 8,
+      "role": "admin",
+      "permission_id": 8,
+      "scope": "all"
+    },
+    {
+      "id": 9,
+      "role": "admin",
+      "permission_id": 9,
+      "scope": "all"
+    },
+    {
+      "id": 10,
+      "role": "admin",
+      "permission_id": 10,
+      "scope": "all"
+    },
+    {
+      "id": 11,
+      "role": "admin",
+      "permission_id": 11,
+      "scope": "all"
+    },
+    {
+      "id": 12,
+      "role": "admin",
+      "permission_id": 12,
+      "scope": "all"
+    },
+    {
+      "id": 13,
+      "role": "admin",
+      "permission_id": 13,
+      "scope": "all"
+    },
+    {
+      "id": 14,
+      "role": "admin",
+      "permission_id": 14,
+      "scope": "all"
+    },
+    {
+      "id": 15,
+      "role": "admin",
+      "permission_id": 15,
+      "scope": "all"
+    },
+    {
+      "id": 16,
+      "role": "admin",
+      "permission_id": 16,
+      "scope": "all"
+    },
+    {
+      "id": 17,
+      "role": "admin",
+      "permission_id": 17,
+      "scope": "all"
+    },
+    {
+      "id": 18,
+      "role": "admin",
+      "permission_id": 18,
+      "scope": "all"
+    },
+    {
+      "id": 19,
+      "role": "admin",
+      "permission_id": 19,
+      "scope": "all"
+    },
+    {
+      "id": 20,
+      "role": "admin",
+      "permission_id": 20,
+      "scope": "all"
+    },
+    {
+      "id": 21,
+      "role": "admin",
+      "permission_id": 21,
+      "scope": "all"
+    },
+    {
+      "id": 22,
+      "role": "admin",
+      "permission_id": 22,
+      "scope": "all"
+    },
+    {
+      "id": 23,
+      "role": "admin",
+      "permission_id": 23,
+      "scope": "all"
+    },
+    {
+      "id": 24,
+      "role": "admin",
+      "permission_id": 24,
+      "scope": "all"
+    },
+    {
+      "id": 25,
+      "role": "admin",
+      "permission_id": 25,
+      "scope": "all"
+    },
+    {
+      "id": 26,
+      "role": "admin",
+      "permission_id": 26,
+      "scope": "all"
+    },
+    {
+      "id": 27,
+      "role": "admin",
+      "permission_id": 27,
+      "scope": "all"
+    },
+    {
+      "id": 28,
+      "role": "admin",
+      "permission_id": 28,
+      "scope": "all"
+    },
+    {
+      "id": 29,
+      "role": "admin",
+      "permission_id": 29,
+      "scope": "all"
+    },
+    {
+      "id": 30,
+      "role": "admin",
+      "permission_id": 30,
+      "scope": "all"
+    },
+    {
+      "id": 31,
+      "role": "admin",
+      "permission_id": 31,
+      "scope": "all"
+    },
+    {
+      "id": 32,
+      "role": "clerk",
+      "permission_id": 1,
+      "scope": "all"
+    },
+    {
+      "id": 33,
+      "role": "clerk",
+      "permission_id": 2,
+      "scope": "all"
+    },
+    {
+      "id": 34,
+      "role": "clerk",
+      "permission_id": 4,
+      "scope": "all"
+    },
+    {
+      "id": 35,
+      "role": "clerk",
+      "permission_id": 8,
+      "scope": "all"
+    },
+    {
+      "id": 36,
+      "role": "clerk",
+      "permission_id": 9,
+      "scope": "all"
+    },
+    {
+      "id": 37,
+      "role": "clerk",
+      "permission_id": 10,
+      "scope": "all"
+    },
+    {
+      "id": 38,
+      "role": "clerk",
+      "permission_id": 11,
+      "scope": "all"
+    },
+    {
+      "id": 39,
+      "role": "clerk",
+      "permission_id": 13,
+      "scope": "all"
+    },
+    {
+      "id": 40,
+      "role": "clerk",
+      "permission_id": 16,
+      "scope": "all"
+    },
+    {
+      "id": 41,
+      "role": "clerk",
+      "permission_id": 17,
+      "scope": "all"
+    },
+    {
+      "id": 42,
+      "role": "clerk",
+      "permission_id": 20,
+      "scope": "all"
+    },
+    {
+      "id": 43,
+      "role": "clerk",
+      "permission_id": 21,
+      "scope": "all"
+    },
+    {
+      "id": 44,
+      "role": "clerk",
+      "permission_id": 24,
+      "scope": "all"
+    },
+    {
+      "id": 45,
+      "role": "clerk",
+      "permission_id": 25,
+      "scope": "all"
+    },
+    {
+      "id": 46,
+      "role": "clerk",
+      "permission_id": 27,
+      "scope": "all"
+    },
+    {
+      "id": 47,
+      "role": "teacher",
+      "permission_id": 4,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 48,
+      "role": "teacher",
+      "permission_id": 9,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 49,
+      "role": "teacher",
+      "permission_id": 13,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 50,
+      "role": "teacher",
+      "permission_id": 16,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 51,
+      "role": "teacher",
+      "permission_id": 17,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 52,
+      "role": "teacher",
+      "permission_id": 21,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 53,
+      "role": "teacher",
+      "permission_id": 27,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 54,
+      "role": "student",
+      "permission_id": 5,
+      "scope": "self"
+    },
+    {
+      "id": 55,
+      "role": "student",
+      "permission_id": 14,
+      "scope": "self"
+    },
+    {
+      "id": 56,
+      "role": "student",
+      "permission_id": 18,
+      "scope": "self"
+    },
+    {
+      "id": 57,
+      "role": "student",
+      "permission_id": 22,
+      "scope": "self"
+    },
+    {
+      "id": 58,
+      "role": "student",
+      "permission_id": 25,
+      "scope": "self"
+    },
+    {
+      "id": 59,
+      "role": "parent",
+      "permission_id": 28,
+      "scope": "children"
+    },
+    {
+      "id": 60,
+      "role": "parent",
+      "permission_id": 29,
+      "scope": "children"
+    },
+    {
+      "id": 61,
+      "role": "parent",
+      "permission_id": 30,
+      "scope": "children"
+    },
+    {
+      "id": 62,
+      "role": "parent",
+      "permission_id": 19,
+      "scope": "children"
+    },
+    {
+      "id": 63,
+      "role": "parent",
+      "permission_id": 23,
+      "scope": "children"
+    },
+    {
+      "id": 64,
+      "role": "parent",
+      "permission_id": 27,
+      "scope": "children"
+    }
+  ],
+  "userStudentLinks": [],
+  "teacherGroupAssignments": [],
+  "studentGroups": [
+    {
+      "id": 1,
+      "name": "General Admission",
+      "description": "Default student group",
+      "is_default": 1,
+      "client_id": null,
+      "created_at": "2026-06-24T08:57:41.729Z"
+    },
+    {
+      "id": 2,
+      "name": "MCA Batch 2026",
+      "description": "Master of Computer Applications",
+      "is_default": 0,
+      "client_id": null,
+      "created_at": "2026-06-24T08:57:41.729Z"
+    },
+    {
+      "id": 3,
+      "name": "BCA Batch 2026",
+      "description": "Bachelor of Computer Applications",
+      "is_default": 0,
+      "client_id": null,
+      "created_at": "2026-06-24T08:57:41.729Z"
+    }
+  ],
+  "groupStudents": [],
+  "students": [
+    {
+      "id": 1,
+      "name": "nandkishor",
+      "class": "MCA",
+      "roll_no": "3232",
+      "mobile": "9716694602",
+      "address": "nivaaji Tola Chhapra Bihar",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 1,
+      "created_at": "2026-06-24T09:03:13.879Z",
+      "updated_at": "2026-06-24T09:03:13.879Z"
+    },
+    {
+      "id": 2,
+      "name": "Shweta Kumari",
+      "class": "BSc",
+      "roll_no": "232312",
+      "mobile": "6512984533",
+      "address": "Chhapra nimadi Tola",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 2,
+      "created_at": "2026-06-24T09:03:13.901Z",
+      "updated_at": "2026-06-24T09:03:13.901Z"
+    },
+    {
+      "id": 3,
+      "name": "Nand kishor",
+      "class": "10",
+      "roll_no": "512",
+      "mobile": "9713394602",
+      "address": "353 Second Floor Village Resort Noida",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 3,
+      "created_at": "2026-06-24T09:03:13.901Z",
+      "updated_at": "2026-06-24T09:03:13.902Z"
+    },
+    {
+      "id": 4,
+      "name": "Nand Kishor",
+      "class": "11",
+      "roll_no": "4356",
+      "mobile": "1235679899",
+      "address": "Ghijhor Noida Delhi",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 4,
+      "created_at": "2026-06-24T09:03:13.901Z",
+      "updated_at": "2026-06-24T09:03:13.901Z"
+    },
+    {
+      "id": 5,
+      "name": "Jitendra Kumar",
+      "class": "12",
+      "roll_no": "550",
+      "mobile": "1234567890",
+      "address": "Khanpur",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 5,
+      "created_at": "2026-06-24T09:03:13.902Z",
+      "updated_at": "2026-06-24T09:03:13.902Z"
+    },
+    {
+      "id": 6,
+      "name": "Jitendra Kumar Gupta",
+      "class": "MCA final year",
+      "roll_no": "234562",
+      "mobile": "2323457823",
+      "address": "Kanpur Paschim Gali",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 6,
+      "created_at": "2026-06-24T09:03:13.903Z",
+      "updated_at": "2026-06-24T09:03:13.903Z"
+    },
+    {
+      "id": 7,
+      "name": "Jitesh kumar",
+      "class": "fifth",
+      "roll_no": "23456",
+      "mobile": "1234543216",
+      "address": "Chapra",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 7,
+      "created_at": "2026-06-24T09:03:13.903Z",
+      "updated_at": "2026-06-24T09:03:13.904Z"
+    },
+    {
+      "id": 8,
+      "name": "नंद किशोर",
+      "class": "छठी",
+      "roll_no": "12345",
+      "mobile": "9716694602",
+      "address": "C 53 नोएडा",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 8,
+      "created_at": "2026-06-24T09:03:13.904Z",
+      "updated_at": "2026-06-24T09:03:13.905Z"
+    },
+    {
+      "id": 9,
+      "name": "नंदकिशोर",
+      "class": "5 th",
+      "roll_no": "123",
+      "mobile": "9797694602",
+      "address": "रेपुरा",
+      "admission_no": null,
+      "parent_name": null,
+      "parent_mobile": null,
+      "academic_year": null,
+      "section": null,
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{\"Grade\":\"एवरेज\"}",
+      "client_id": 9,
+      "created_at": "2026-06-24T09:03:13.905Z",
+      "updated_at": "2026-06-24T09:03:13.905Z"
+    },
+    {
+      "id": 10,
+      "name": "Nand Kishore",
+      "class": "MCA",
+      "roll_no": "123",
+      "mobile": "9716694602",
+      "address": "Shreya Chopra Vihar",
+      "admission_no": "1234 ParentsHari Bhajan Singh parents Mobile number 12345",
+      "parent_name": "",
+      "parent_mobile": "",
+      "academic_year": "2026-2027",
+      "section": "C",
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{}",
+      "client_id": 10,
+      "created_at": "2026-06-24T09:07:43.801Z",
+      "updated_at": "2026-06-24T09:07:43.801Z"
+    },
+    {
+      "id": 11,
+      "name": "nandkishor",
+      "class": "s 11",
+      "roll_no": "5353",
+      "mobile": "9717645602",
+      "address": "ess Chhapra Bihar nivaaji Tola Sharma Tola Paida Ho Khanpur shalayampur",
+      "admission_no": "",
+      "parent_name": "",
+      "parent_mobile": "",
+      "academic_year": "2026-2027",
+      "section": "",
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{\"Grade\":\"pass\"}",
+      "client_id": 11,
+      "created_at": "2026-06-24T09:52:23.230Z",
+      "updated_at": "2026-06-24T09:52:23.230Z"
+    },
+    {
+      "id": 13,
+      "name": "nandkishor",
+      "class": "Class 10",
+      "roll_no": "5",
+      "mobile": "1234567890",
+      "address": "ess Noida",
+      "admission_no": "",
+      "parent_name": "",
+      "parent_mobile": "",
+      "academic_year": "2026-2027",
+      "section": "",
+      "status": "new_admission",
+      "fee_status": "not_applicable",
+      "group_id": null,
+      "custom_data": "{\"Grade\":\"pass\"}",
+      "client_id": 13,
+      "created_at": "2026-06-24T12:39:45.938Z",
+      "updated_at": "2026-06-24T12:39:45.938Z"
+    }
+  ],
+  "studentActivities": [
+    {
+      "id": 1,
+      "student_id": 1,
+      "action": "create",
+      "message": "Student (STU0000001) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 2,
+      "student_id": 2,
+      "action": "create",
+      "message": "Student (STU0000002) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 3,
+      "student_id": 2,
+      "action": "update",
+      "message": "Student (STU0000002) updated",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 4,
+      "student_id": 3,
+      "action": "create",
+      "message": "Student (STU0000003) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 5,
+      "student_id": 4,
+      "action": "create",
+      "message": "Student (STU0000004) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 6,
+      "student_id": 3,
+      "action": "update",
+      "message": "Student (STU0000003) updated",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 7,
+      "student_id": 5,
+      "action": "create",
+      "message": "Student (STU0000005) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 8,
+      "student_id": 6,
+      "action": "create",
+      "message": "Student (STU0000006) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 9,
+      "student_id": 7,
+      "action": "create",
+      "message": "Student (STU0000007) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 10,
+      "student_id": 7,
+      "action": "update",
+      "message": "Student (STU0000007) updated",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 11,
+      "student_id": 8,
+      "action": "create",
+      "message": "Student (STU0000008) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 12,
+      "student_id": 8,
+      "action": "update",
+      "message": "Student (STU0000008) updated",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 13,
+      "student_id": 8,
+      "action": "update",
+      "message": "Student (STU0000008) updated",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 14,
+      "student_id": 9,
+      "action": "create",
+      "message": "Student (STU0000009) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 15,
+      "student_id": 10,
+      "action": "create",
+      "message": "Student (STU0000010) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 16,
+      "student_id": 11,
+      "action": "create",
+      "message": "Student (STU0000011) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    },
+    {
+      "id": 20,
+      "student_id": 13,
+      "action": "create",
+      "message": "Student (STU0000013) created",
+      "action_date": "24 Jun 2026",
+      "logged_date": "24 Jun 2026",
+      "user_id": 2
+    }
+  ],
+  "events": [],
+  "eventParticipants": [],
+  "attendanceRecords": [],
+  "customFieldDefinitions": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "entity_type": "student",
+      "field_name": "blood_group",
+      "field_label": "Blood Group",
+      "field_type": "dropdown",
+      "is_required": 0,
+      "default_value": null,
+      "validation_rules_json": "{\"options\":[{\"value\":\"A+\",\"label\":\"A+\"},{\"value\":\"B+\",\"label\":\"B+\"},{\"value\":\"O+\",\"label\":\"O+\"},{\"value\":\"AB+\",\"label\":\"AB+\"},{\"value\":\"A-\",\"label\":\"A-\"},{\"value\":\"B-\",\"label\":\"B-\"},{\"value\":\"O-\",\"label\":\"O-\"},{\"value\":\"AB-\",\"label\":\"AB-\"}]}",
+      "display_order": 1,
+      "is_active": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T05:39:06.072Z",
+      "updated_at": "2026-06-25T05:39:06.072Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "entity_type": "student",
+      "field_name": "house_name",
+      "field_label": "House Name",
+      "field_type": "dropdown",
+      "is_required": 0,
+      "default_value": null,
+      "validation_rules_json": "{\"options\":[{\"value\":\"red\",\"label\":\"Red House\"},{\"value\":\"blue\",\"label\":\"Blue House\"},{\"value\":\"green\",\"label\":\"Green House\"},{\"value\":\"yellow\",\"label\":\"Yellow House\"}]}",
+      "display_order": 2,
+      "is_active": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T05:39:06.073Z",
+      "updated_at": "2026-06-25T05:39:06.073Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "entity_type": "student",
+      "field_name": "bus_route",
+      "field_label": "Bus Route",
+      "field_type": "text",
+      "is_required": 0,
+      "default_value": null,
+      "validation_rules_json": null,
+      "display_order": 3,
+      "is_active": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T05:39:06.074Z",
+      "updated_at": "2026-06-25T05:39:06.074Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "entity_type": "student",
+      "field_name": "scholarship_type",
+      "field_label": "Scholarship Type",
+      "field_type": "text",
+      "is_required": 0,
+      "default_value": null,
+      "validation_rules_json": null,
+      "display_order": 4,
+      "is_active": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T05:39:06.074Z",
+      "updated_at": "2026-06-25T05:39:06.074Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "entity_type": "student",
+      "field_name": "admission_category",
+      "field_label": "Admission Category",
+      "field_type": "dropdown",
+      "is_required": 0,
+      "default_value": null,
+      "validation_rules_json": "{\"options\":[{\"value\":\"general\",\"label\":\"General\"},{\"value\":\"reserved\",\"label\":\"Reserved\"},{\"value\":\"management\",\"label\":\"Management Quota\"}]}",
+      "display_order": 5,
+      "is_active": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T05:39:06.075Z",
+      "updated_at": "2026-06-25T05:39:06.075Z"
+    }
+  ],
+  "customFieldValues": [],
+  "auditLogs": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "entity_type": "custom_field_definition",
+      "entity_id": 1,
+      "action": "create",
+      "changes_json": "{\"fieldName\":\"blood_group\",\"fieldLabel\":\"Blood Group\"}",
+      "user_id": null,
+      "created_at": "2026-06-25T05:39:06.073Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "entity_type": "custom_field_definition",
+      "entity_id": 2,
+      "action": "create",
+      "changes_json": "{\"fieldName\":\"house_name\",\"fieldLabel\":\"House Name\"}",
+      "user_id": null,
+      "created_at": "2026-06-25T05:39:06.074Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "entity_type": "custom_field_definition",
+      "entity_id": 3,
+      "action": "create",
+      "changes_json": "{\"fieldName\":\"bus_route\",\"fieldLabel\":\"Bus Route\"}",
+      "user_id": null,
+      "created_at": "2026-06-25T05:39:06.074Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "entity_type": "custom_field_definition",
+      "entity_id": 4,
+      "action": "create",
+      "changes_json": "{\"fieldName\":\"scholarship_type\",\"fieldLabel\":\"Scholarship Type\"}",
+      "user_id": null,
+      "created_at": "2026-06-25T05:39:06.074Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "entity_type": "custom_field_definition",
+      "entity_id": 5,
+      "action": "create",
+      "changes_json": "{\"fieldName\":\"admission_category\",\"fieldLabel\":\"Admission Category\"}",
+      "user_id": null,
+      "created_at": "2026-06-25T05:39:06.075Z"
+    }
+  ],
+  "certificateTemplates": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "name": "Academic Excellence",
+      "description": "Default Academic Excellence template",
+      "certificate_type": "merit",
+      "template_url": null,
+      "is_active": 1,
+      "created_by": null,
+      "client_id": null,
+      "created_at": "2026-06-25T06:02:49.241Z",
+      "updated_at": "2026-06-25T06:02:49.241Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "name": "Course Completion",
+      "description": "Default Course Completion template",
+      "certificate_type": "completion",
+      "template_url": null,
+      "is_active": 1,
+      "created_by": null,
+      "client_id": null,
+      "created_at": "2026-06-25T06:02:49.241Z",
+      "updated_at": "2026-06-25T06:02:49.241Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "name": "Sports Achievement",
+      "description": "Default Sports Achievement template",
+      "certificate_type": "achievement",
+      "template_url": null,
+      "is_active": 1,
+      "created_by": null,
+      "client_id": null,
+      "created_at": "2026-06-25T06:02:49.241Z",
+      "updated_at": "2026-06-25T06:02:49.241Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "name": "Perfect Attendance",
+      "description": "Default Perfect Attendance template",
+      "certificate_type": "participation",
+      "template_url": null,
+      "is_active": 1,
+      "created_by": null,
+      "client_id": null,
+      "created_at": "2026-06-25T06:02:49.241Z",
+      "updated_at": "2026-06-25T06:02:49.241Z"
+    }
+  ],
+  "certificates": [],
+  "awards": [],
+  "voiceEntries": [],
+  "voiceEntryEdits": [],
+  "lookups": {
+    "class": [
+      {
+        "value": "Class 1",
+        "label": "Class 1"
+      },
+      {
+        "value": "Class 2",
+        "label": "Class 2"
+      },
+      {
+        "value": "Class 3",
+        "label": "Class 3"
+      },
+      {
+        "value": "Class 4",
+        "label": "Class 4"
+      },
+      {
+        "value": "Class 5",
+        "label": "Class 5"
+      },
+      {
+        "value": "Class 6",
+        "label": "Class 6"
+      },
+      {
+        "value": "Class 7",
+        "label": "Class 7"
+      },
+      {
+        "value": "Class 8",
+        "label": "Class 8"
+      },
+      {
+        "value": "Class 9",
+        "label": "Class 9"
+      },
+      {
+        "value": "Class 10",
+        "label": "Class 10"
+      },
+      {
+        "value": "Class 11",
+        "label": "Class 11"
+      },
+      {
+        "value": "Class 12",
+        "label": "Class 12"
+      },
+      {
+        "value": "B.Tech",
+        "label": "B.Tech"
+      },
+      {
+        "value": "M.Tech",
+        "label": "M.Tech"
+      },
+      {
+        "value": "MCA",
+        "label": "MCA"
+      },
+      {
+        "value": "MBA",
+        "label": "MBA"
+      },
+      {
+        "value": "BCA",
+        "label": "BCA"
+      }
+    ],
+    "grade": [
+      {
+        "value": "A+",
+        "label": "A+"
+      },
+      {
+        "value": "A",
+        "label": "A"
+      },
+      {
+        "value": "B+",
+        "label": "B+"
+      },
+      {
+        "value": "B",
+        "label": "B"
+      },
+      {
+        "value": "C",
+        "label": "C"
+      },
+      {
+        "value": "D",
+        "label": "D"
+      }
+    ],
+    "section": [
+      {
+        "value": "A",
+        "label": "Section A"
+      },
+      {
+        "value": "B",
+        "label": "Section B"
+      },
+      {
+        "value": "C",
+        "label": "Section C"
+      },
+      {
+        "value": "D",
+        "label": "Section D"
+      }
+    ],
+    "status": [
+      {
+        "value": "new_admission",
+        "label": "New Admission"
+      },
+      {
+        "value": "pending_approval",
+        "label": "Pending Approval"
+      },
+      {
+        "value": "pending_docs",
+        "label": "Pending Documents"
+      },
+      {
+        "value": "active",
+        "label": "Active"
+      },
+      {
+        "value": "on_leave",
+        "label": "On Leave"
+      },
+      {
+        "value": "graduated",
+        "label": "Graduated"
+      },
+      {
+        "value": "inactive",
+        "label": "Inactive"
+      }
+    ],
+    "feeStatus": [
+      {
+        "value": "paid",
+        "label": "Paid"
+      },
+      {
+        "value": "partial",
+        "label": "Partial"
+      },
+      {
+        "value": "overdue",
+        "label": "Overdue"
+      },
+      {
+        "value": "not_applicable",
+        "label": "Not Applicable"
+      }
+    ]
+  },
+  "nextIds": {
+    "users": 4,
+    "studentGroups": 4,
+    "students": 14,
+    "studentActivities": 21,
+    "organizations": 1,
+    "permissions": 1,
+    "rolePermissions": 1,
+    "userStudentLinks": 1,
+    "groupStudents": 1,
+    "teacherGroupAssignments": 1,
+    "events": 1,
+    "eventParticipants": 1,
+    "attendanceRecords": 1,
+    "certificateTemplates": 5,
+    "certificates": 1,
+    "awards": 1,
+    "voiceEntries": 1,
+    "voiceEntryEdits": 1,
+    "customFieldDefinitions": 6,
+    "customFieldValues": 1,
+    "auditLogs": 6
+  }
+}

@@ -31,7 +31,7 @@ router.get('/activities', (req, res) => {
 
 router.get('/', (req, res) => {
   const groupId = req.query.groupId ? Number(req.query.groupId) : undefined;
-  const students = listStudents(groupId).map(studentToApi);
+  const students = listStudents(groupId).map((s) => studentToApi(s));
   res.json(students);
 });
 
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
     res.status(404).json({ error: 'Student not found' });
     return;
   }
-  res.json(studentToApi(student));
+  res.json(studentToApi(student, true));
 });
 
 router.post('/', requireRoles('admin', 'admission_clerk'), (req: AuthRequest, res) => {

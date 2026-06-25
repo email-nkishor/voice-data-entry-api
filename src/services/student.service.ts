@@ -1,5 +1,6 @@
 import { getRepository } from '../db/database';
-import { FeeStatus, Student, StudentActivity, StudentGroup, StudentStatus } from '../types';
+import { FeeStatus, Student, StudentActivity, StudentGroup, StudentStatus, CustomFieldValueInput } from '../types';
+import { getEntityValues, migrateStudentCustomDataToEav, saveEntityValues } from './custom-field.service';
 
 export function listStudents(groupId?: number): Student[] {
   return getRepository().listStudents(groupId);
@@ -29,6 +30,7 @@ export interface StudentInput {
   groupId?: number;
   customData?: string;
   clientId?: number;
+  customFields?: CustomFieldValueInput[];
 }
 
 export function createStudent(input: StudentInput, userId?: number): Student {
@@ -37,6 +39,7 @@ export function createStudent(input: StudentInput, userId?: number): Student {
   const id = repo.nextId('students');
   const student: Student = {
     id,
+    organization_id: 1,
     name: input.name,
     class: input.class ?? '',
     roll_no: input.rollNo ?? '',
@@ -57,6 +60,13 @@ export function createStudent(input: StudentInput, userId?: number): Student {
   };
   repo.insertStudent(student);
   logActivity(id, 'create', `Student (${formatCode(id)}) created`, userId);
+
+  if (input.customFields?.length) {
+    saveEntityValues('student', id, input.customFields, userId);
+  } else if (input.customData) {
+    migrateStudentCustomDataToEav(id, input.customData);
+  }
+
   return student;
 }
 
@@ -92,6 +102,13 @@ export function updateStudent(
   };
   repo.updateStudentRecord(updated);
   logActivity(id, 'update', `Student (${formatCode(id)}) updated`, userId);
+
+  if (input.customFields?.length) {
+    saveEntityValues('student', id, input.customFields, userId);
+  } else if (input.customData) {
+    migrateStudentCustomDataToEav(id, input.customData);
+  }
+
   return updated;
 }
 
@@ -151,6 +168,7 @@ export function createGroup(name: string, description?: string, clientId?: numbe
   const id = repo.nextId('studentGroups');
   const group: StudentGroup = {
     id,
+    organization_id: 1,
     name,
     description: description ?? null,
     is_default: 0,
@@ -163,6 +181,55 @@ export function createGroup(name: string, description?: string, clientId?: numbe
 
 export function deleteGroup(id: number): boolean {
   return getRepository().deleteGroup(id);
+}
+
+export function updateGroup(
+  id: number,
+  name: string,
+  description?: string
+): StudentGroup | undefined {
+  const repo = getRepository();
+  const existing = repo.findGroupById(id);
+  if (!existing) {
+    return undefined;
+  }
+  const updated: StudentGroup = {
+    ...existing,
+    name: name.trim(),
+    description: description?.trim() ?? existing.description,
+  };
+  repo.updateGroup(updated);
+  return updated;
+}
+
+export function assignStudentsToGroup(
+  groupId: number,
+  studentIds: number[],
+  assignedBy?: number
+): number {
+  const repo = getRepository();
+  let count = 0;
+  const now = new Date().toISOString();
+  for (const studentId of studentIds) {
+    const existing = repo.listGroupStudents(groupId);
+    if (existing.some((g) => g.student_id === studentId)) {
+      continue;
+    }
+    repo.assignStudentToGroup({
+      id: repo.nextId('groupStudents'),
+      organization_id: 1,
+      group_id: groupId,
+      student_id: studentId,
+      assigned_at: now,
+      assigned_by: assignedBy ?? null,
+    });
+    const student = repo.getStudentById(studentId);
+    if (student && student.group_id !== groupId) {
+      repo.updateStudentRecord({ ...student, group_id: groupId, updated_at: now });
+    }
+    count++;
+  }
+  return count;
 }
 
 export function getDashboardStats(groupId?: number) {
@@ -238,8 +305,8 @@ export function formatCode(id: number): string {
   return `STU${String(id).padStart(7, '0')}`;
 }
 
-export function studentToApi(student: Student) {
-  return {
+export function studentToApi(student: Student, includeCustomFields = false) {
+  const base = {
     id: student.id,
     name: student.name,
     class: student.class,
@@ -259,6 +326,14 @@ export function studentToApi(student: Student) {
     createdDate: student.created_at,
     updatedDate: student.updated_at,
   };
+
+  if (includeCustomFields) {
+    return {
+      ...base,
+      customFields: getEntityValues('student', student.id),
+    };
+  }
+  return base;
 }
 
 export function apiToStudentInput(body: Record<string, unknown>): StudentInput {
@@ -278,5 +353,6 @@ export function apiToStudentInput(body: Record<string, unknown>): StudentInput {
     groupId: body['groupId'] != null ? Number(body['groupId']) : undefined,
     customData: body['customData'] != null ? String(body['customData']) : undefined,
     clientId: body['clientId'] != null ? Number(body['clientId']) : undefined,
+    customFields: body['customFields'] as StudentInput['customFields'],
   };
 }

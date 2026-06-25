@@ -12,11 +12,14 @@ exports.listActivities = listActivities;
 exports.listGroups = listGroups;
 exports.createGroup = createGroup;
 exports.deleteGroup = deleteGroup;
+exports.updateGroup = updateGroup;
+exports.assignStudentsToGroup = assignStudentsToGroup;
 exports.getDashboardStats = getDashboardStats;
 exports.formatCode = formatCode;
 exports.studentToApi = studentToApi;
 exports.apiToStudentInput = apiToStudentInput;
 const database_1 = require("../db/database");
+const custom_field_service_1 = require("./custom-field.service");
 function listStudents(groupId) {
     return (0, database_1.getRepository)().listStudents(groupId);
 }
@@ -32,6 +35,7 @@ function createStudent(input, userId) {
     const id = repo.nextId('students');
     const student = {
         id,
+        organization_id: 1,
         name: input.name,
         class: input.class ?? '',
         roll_no: input.rollNo ?? '',
@@ -52,6 +56,12 @@ function createStudent(input, userId) {
     };
     repo.insertStudent(student);
     logActivity(id, 'create', `Student (${formatCode(id)}) created`, userId);
+    if (input.customFields?.length) {
+        (0, custom_field_service_1.saveEntityValues)('student', id, input.customFields, userId);
+    }
+    else if (input.customData) {
+        (0, custom_field_service_1.migrateStudentCustomDataToEav)(id, input.customData);
+    }
     return student;
 }
 function updateStudent(id, input, userId) {
@@ -81,6 +91,12 @@ function updateStudent(id, input, userId) {
     };
     repo.updateStudentRecord(updated);
     logActivity(id, 'update', `Student (${formatCode(id)}) updated`, userId);
+    if (input.customFields?.length) {
+        (0, custom_field_service_1.saveEntityValues)('student', id, input.customFields, userId);
+    }
+    else if (input.customData) {
+        (0, custom_field_service_1.migrateStudentCustomDataToEav)(id, input.customData);
+    }
     return updated;
 }
 function deleteStudent(id, userId) {
@@ -129,6 +145,7 @@ function createGroup(name, description, clientId) {
     const id = repo.nextId('studentGroups');
     const group = {
         id,
+        organization_id: 1,
         name,
         description: description ?? null,
         is_default: 0,
@@ -140,6 +157,45 @@ function createGroup(name, description, clientId) {
 }
 function deleteGroup(id) {
     return (0, database_1.getRepository)().deleteGroup(id);
+}
+function updateGroup(id, name, description) {
+    const repo = (0, database_1.getRepository)();
+    const existing = repo.findGroupById(id);
+    if (!existing) {
+        return undefined;
+    }
+    const updated = {
+        ...existing,
+        name: name.trim(),
+        description: description?.trim() ?? existing.description,
+    };
+    repo.updateGroup(updated);
+    return updated;
+}
+function assignStudentsToGroup(groupId, studentIds, assignedBy) {
+    const repo = (0, database_1.getRepository)();
+    let count = 0;
+    const now = new Date().toISOString();
+    for (const studentId of studentIds) {
+        const existing = repo.listGroupStudents(groupId);
+        if (existing.some((g) => g.student_id === studentId)) {
+            continue;
+        }
+        repo.assignStudentToGroup({
+            id: repo.nextId('groupStudents'),
+            organization_id: 1,
+            group_id: groupId,
+            student_id: studentId,
+            assigned_at: now,
+            assigned_by: assignedBy ?? null,
+        });
+        const student = repo.getStudentById(studentId);
+        if (student && student.group_id !== groupId) {
+            repo.updateStudentRecord({ ...student, group_id: groupId, updated_at: now });
+        }
+        count++;
+    }
+    return count;
 }
 function getDashboardStats(groupId) {
     const students = listStudents(groupId);
@@ -206,8 +262,8 @@ function getDashboardStats(groupId) {
 function formatCode(id) {
     return `STU${String(id).padStart(7, '0')}`;
 }
-function studentToApi(student) {
-    return {
+function studentToApi(student, includeCustomFields = false) {
+    const base = {
         id: student.id,
         name: student.name,
         class: student.class,
@@ -227,6 +283,13 @@ function studentToApi(student) {
         createdDate: student.created_at,
         updatedDate: student.updated_at,
     };
+    if (includeCustomFields) {
+        return {
+            ...base,
+            customFields: (0, custom_field_service_1.getEntityValues)('student', student.id),
+        };
+    }
+    return base;
 }
 function apiToStudentInput(body) {
     return {
@@ -245,5 +308,6 @@ function apiToStudentInput(body) {
         groupId: body['groupId'] != null ? Number(body['groupId']) : undefined,
         customData: body['customData'] != null ? String(body['customData']) : undefined,
         clientId: body['clientId'] != null ? Number(body['clientId']) : undefined,
+        customFields: body['customFields'],
     };
 }

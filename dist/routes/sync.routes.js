@@ -17,7 +17,11 @@ router.post('/push', (req, res) => {
     res.json({ results, synced, failed, syncedAt: new Date().toISOString() });
 });
 router.get('/pull', (req, res) => {
+    if (!req.user) {
+        res.status(401).json({ error: 'Authentication required' });
+        return;
+    }
     const since = req.query.since;
-    res.json((0, sync_service_1.pullChanges)(since));
+    res.json((0, sync_service_1.pullChanges)(req.user, since));
 });
 exports.default = router;

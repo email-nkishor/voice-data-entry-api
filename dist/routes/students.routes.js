@@ -17,7 +17,7 @@ router.get('/activities', (req, res) => {
 });
 router.get('/', (req, res) => {
     const groupId = req.query.groupId ? Number(req.query.groupId) : undefined;
-    const students = (0, student_service_1.listStudents)(groupId).map(student_service_1.studentToApi);
+    const students = (0, student_service_1.listStudents)(groupId).map((s) => (0, student_service_1.studentToApi)(s));
     res.json(students);
 });
 router.get('/:id', (req, res) => {
@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
         res.status(404).json({ error: 'Student not found' });
         return;
     }
-    res.json((0, student_service_1.studentToApi)(student));
+    res.json((0, student_service_1.studentToApi)(student, true));
 });
 router.post('/', (0, auth_middleware_1.requireRoles)('admin', 'admission_clerk'), (req, res) => {
     const input = (0, student_service_1.apiToStudentInput)(req.body);

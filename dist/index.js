@@ -8,6 +8,6 @@ const database_1 = require("./db/database");
 const app = (0, app_1.createApp)();
 app.listen(config_1.config.port, () => {
     console.log(`Voice Data Entry API running on http://localhost:${config_1.config.port}`);
-    console.log(`CORS origin: ${config_1.config.corsOrigin}`);
+    console.log(`CORS origins: ${config_1.config.corsOrigins.join(', ')}`);
     console.log('Default users: admin@institute.local / admin123');
 });

@@ -19,9 +19,13 @@ router.post('/push', (req: AuthRequest, res) => {
   res.json({ results, synced, failed, syncedAt: new Date().toISOString() });
 });
 
-router.get('/pull', (req, res) => {
+router.get('/pull', (req: AuthRequest, res) => {
+  if (!req.user) {
+    res.status(401).json({ error: 'Authentication required' });
+    return;
+  }
   const since = req.query.since as string | undefined;
-  res.json(pullChanges(since));
+  res.json(pullChanges(req.user, since));
 });
 
 export default router;

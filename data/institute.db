@@ -1,4 +1,14 @@
 {
+  "organizations": [
+    {
+      "id": 1,
+      "name": "Default Institute",
+      "code": "DEFAULT",
+      "settings_json": "{\"timezone\":\"Asia/Kolkata\",\"academicYear\":\"2025-26\",\"parentPortalEnabled\":true,\"parentAttendanceEnabled\":true}",
+      "created_at": "2026-06-25T05:33:38.360Z",
+      "updated_at": "2026-06-25T05:33:38.360Z"
+    }
+  ],
   "users": [
     {
       "id": 1,
@@ -6,7 +16,10 @@
       "password_hash": "$2b$10$2p516oijaAeP.nWlOw1v9.EyEztSnWdczubtvyHet75A6RB/j86QO",
       "name": "Institute Admin",
       "role": "admin",
-      "created_at": "2026-06-24T08:57:41.628Z"
+      "created_at": "2026-06-24T08:57:41.628Z",
+      "status": "active",
+      "linked_student_id": null,
+      "organization_id": 1
     },
     {
       "id": 2,
@@ -14,7 +27,10 @@
       "password_hash": "$2b$10$94ZTJqOxppFUl.TsDASW6O8iAt65PFX/0XcTxFp82qSZZG/qgj2uK",
       "name": "Admission Clerk",
       "role": "admission_clerk",
-      "created_at": "2026-06-24T08:57:41.679Z"
+      "created_at": "2026-06-24T08:57:41.679Z",
+      "status": "active",
+      "linked_student_id": null,
+      "organization_id": 1
     },
     {
       "id": 3,
@@ -22,7 +38,725 @@
       "password_hash": "$2b$10$23Q2UTHi.ppX5QLMoFgVMe6NtyKFjGNaD4m4OsU53xGvTjuSEcSnS",
       "name": "Class Teacher",
       "role": "teacher",
-      "created_at": "2026-06-24T08:57:41.729Z"
+      "created_at": "2026-06-24T08:57:41.729Z",
+      "status": "active",
+      "linked_student_id": null,
+      "organization_id": 1
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "email": "parent@institute.local",
+      "password_hash": "$2b$10$f.rtPzSAQQsU921USYxOuuY3ffkOxLlMmtYYdlJ9WDjpLx8eom7au",
+      "name": "Parent User",
+      "role": "parent",
+      "status": "active",
+      "linked_student_id": 15,
+      "created_at": "2026-06-25T08:08:16.674Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "email": "student@institute.local",
+      "password_hash": "$2b$10$eQQkZ2cA8vJnzkgHpj8z1uquxXWYHWTysTDoXvJJrIE6.1OWp9p0S",
+      "name": "Student User",
+      "role": "student",
+      "status": "active",
+      "linked_student_id": 15,
+      "created_at": "2026-06-25T08:08:16.730Z"
+    }
+  ],
+  "permissions": [
+    {
+      "id": 1,
+      "module": "student",
+      "action": "create",
+      "description": "Create student records"
+    },
+    {
+      "id": 2,
+      "module": "student",
+      "action": "edit",
+      "description": "Edit student records"
+    },
+    {
+      "id": 3,
+      "module": "student",
+      "action": "delete",
+      "description": "Delete student records"
+    },
+    {
+      "id": 4,
+      "module": "student",
+      "action": "view",
+      "description": "View all students"
+    },
+    {
+      "id": 5,
+      "module": "student",
+      "action": "view_self",
+      "description": "View own student profile"
+    },
+    {
+      "id": 6,
+      "module": "group",
+      "action": "create",
+      "description": "Create groups"
+    },
+    {
+      "id": 7,
+      "module": "group",
+      "action": "modify",
+      "description": "Modify groups"
+    },
+    {
+      "id": 8,
+      "module": "group",
+      "action": "assign",
+      "description": "Assign students to groups"
+    },
+    {
+      "id": 9,
+      "module": "group",
+      "action": "view",
+      "description": "View groups"
+    },
+    {
+      "id": 10,
+      "module": "event",
+      "action": "create",
+      "description": "Create events"
+    },
+    {
+      "id": 11,
+      "module": "event",
+      "action": "edit",
+      "description": "Edit events"
+    },
+    {
+      "id": 12,
+      "module": "event",
+      "action": "delete",
+      "description": "Delete events"
+    },
+    {
+      "id": 13,
+      "module": "event",
+      "action": "view",
+      "description": "View all events"
+    },
+    {
+      "id": 14,
+      "module": "event",
+      "action": "view_own",
+      "description": "View own events"
+    },
+    {
+      "id": 15,
+      "module": "user",
+      "action": "manage",
+      "description": "Manage users"
+    },
+    {
+      "id": 16,
+      "module": "attendance",
+      "action": "mark",
+      "description": "Mark attendance"
+    },
+    {
+      "id": 17,
+      "module": "attendance",
+      "action": "view",
+      "description": "View attendance"
+    },
+    {
+      "id": 18,
+      "module": "attendance",
+      "action": "view_self",
+      "description": "View own attendance"
+    },
+    {
+      "id": 19,
+      "module": "attendance",
+      "action": "view_child",
+      "description": "View child attendance"
+    },
+    {
+      "id": 20,
+      "module": "certificate",
+      "action": "create",
+      "description": "Create certificates"
+    },
+    {
+      "id": 21,
+      "module": "certificate",
+      "action": "view",
+      "description": "View certificates"
+    },
+    {
+      "id": 22,
+      "module": "certificate",
+      "action": "view_self",
+      "description": "View own certificates"
+    },
+    {
+      "id": 23,
+      "module": "certificate",
+      "action": "view_child",
+      "description": "View child certificates"
+    },
+    {
+      "id": 24,
+      "module": "voice",
+      "action": "create",
+      "description": "Create voice entries"
+    },
+    {
+      "id": 25,
+      "module": "voice",
+      "action": "view",
+      "description": "View voice entry history"
+    },
+    {
+      "id": 26,
+      "module": "custom_field",
+      "action": "manage",
+      "description": "Manage custom field definitions"
+    },
+    {
+      "id": 27,
+      "module": "report",
+      "action": "view",
+      "description": "View reports and dashboards"
+    },
+    {
+      "id": 28,
+      "module": "parent",
+      "action": "view_child_profile",
+      "description": "View child profile"
+    },
+    {
+      "id": 29,
+      "module": "parent",
+      "action": "view_child_events",
+      "description": "View child events"
+    },
+    {
+      "id": 30,
+      "module": "parent",
+      "action": "view_child_achievements",
+      "description": "View child achievements"
+    },
+    {
+      "id": 31,
+      "module": "organization",
+      "action": "manage",
+      "description": "Manage organization settings"
+    }
+  ],
+  "rolePermissions": [
+    {
+      "id": 1,
+      "role": "admin",
+      "permission_id": 1,
+      "scope": "all"
+    },
+    {
+      "id": 2,
+      "role": "admin",
+      "permission_id": 2,
+      "scope": "all"
+    },
+    {
+      "id": 3,
+      "role": "admin",
+      "permission_id": 3,
+      "scope": "all"
+    },
+    {
+      "id": 4,
+      "role": "admin",
+      "permission_id": 4,
+      "scope": "all"
+    },
+    {
+      "id": 5,
+      "role": "admin",
+      "permission_id": 5,
+      "scope": "all"
+    },
+    {
+      "id": 6,
+      "role": "admin",
+      "permission_id": 6,
+      "scope": "all"
+    },
+    {
+      "id": 7,
+      "role": "admin",
+      "permission_id": 7,
+      "scope": "all"
+    },
+    {
+      "id": 8,
+      "role": "admin",
+      "permission_id": 8,
+      "scope": "all"
+    },
+    {
+      "id": 9,
+      "role": "admin",
+      "permission_id": 9,
+      "scope": "all"
+    },
+    {
+      "id": 10,
+      "role": "admin",
+      "permission_id": 10,
+      "scope": "all"
+    },
+    {
+      "id": 11,
+      "role": "admin",
+      "permission_id": 11,
+      "scope": "all"
+    },
+    {
+      "id": 12,
+      "role": "admin",
+      "permission_id": 12,
+      "scope": "all"
+    },
+    {
+      "id": 13,
+      "role": "admin",
+      "permission_id": 13,
+      "scope": "all"
+    },
+    {
+      "id": 14,
+      "role": "admin",
+      "permission_id": 14,
+      "scope": "all"
+    },
+    {
+      "id": 15,
+      "role": "admin",
+      "permission_id": 15,
+      "scope": "all"
+    },
+    {
+      "id": 16,
+      "role": "admin",
+      "permission_id": 16,
+      "scope": "all"
+    },
+    {
+      "id": 17,
+      "role": "admin",
+      "permission_id": 17,
+      "scope": "all"
+    },
+    {
+      "id": 18,
+      "role": "admin",
+      "permission_id": 18,
+      "scope": "all"
+    },
+    {
+      "id": 19,
+      "role": "admin",
+      "permission_id": 19,
+      "scope": "all"
+    },
+    {
+      "id": 20,
+      "role": "admin",
+      "permission_id": 20,
+      "scope": "all"
+    },
+    {
+      "id": 21,
+      "role": "admin",
+      "permission_id": 21,
+      "scope": "all"
+    },
+    {
+      "id": 22,
+      "role": "admin",
+      "permission_id": 22,
+      "scope": "all"
+    },
+    {
+      "id": 23,
+      "role": "admin",
+      "permission_id": 23,
+      "scope": "all"
+    },
+    {
+      "id": 24,
+      "role": "admin",
+      "permission_id": 24,
+      "scope": "all"
+    },
+    {
+      "id": 25,
+      "role": "admin",
+      "permission_id": 25,
+      "scope": "all"
+    },
+    {
+      "id": 26,
+      "role": "admin",
+      "permission_id": 26,
+      "scope": "all"
+    },
+    {
+      "id": 27,
+      "role": "admin",
+      "permission_id": 27,
+      "scope": "all"
+    },
+    {
+      "id": 28,
+      "role": "admin",
+      "permission_id": 28,
+      "scope": "all"
+    },
+    {
+      "id": 29,
+      "role": "admin",
+      "permission_id": 29,
+      "scope": "all"
+    },
+    {
+      "id": 30,
+      "role": "admin",
+      "permission_id": 30,
+      "scope": "all"
+    },
+    {
+      "id": 31,
+      "role": "admin",
+      "permission_id": 31,
+      "scope": "all"
+    },
+    {
+      "id": 32,
+      "role": "clerk",
+      "permission_id": 1,
+      "scope": "all"
+    },
+    {
+      "id": 33,
+      "role": "clerk",
+      "permission_id": 2,
+      "scope": "all"
+    },
+    {
+      "id": 34,
+      "role": "clerk",
+      "permission_id": 4,
+      "scope": "all"
+    },
+    {
+      "id": 35,
+      "role": "clerk",
+      "permission_id": 8,
+      "scope": "all"
+    },
+    {
+      "id": 36,
+      "role": "clerk",
+      "permission_id": 9,
+      "scope": "all"
+    },
+    {
+      "id": 37,
+      "role": "clerk",
+      "permission_id": 10,
+      "scope": "all"
+    },
+    {
+      "id": 38,
+      "role": "clerk",
+      "permission_id": 11,
+      "scope": "all"
+    },
+    {
+      "id": 39,
+      "role": "clerk",
+      "permission_id": 13,
+      "scope": "all"
+    },
+    {
+      "id": 40,
+      "role": "clerk",
+      "permission_id": 16,
+      "scope": "all"
+    },
+    {
+      "id": 41,
+      "role": "clerk",
+      "permission_id": 17,
+      "scope": "all"
+    },
+    {
+      "id": 42,
+      "role": "clerk",
+      "permission_id": 20,
+      "scope": "all"
+    },
+    {
+      "id": 43,
+      "role": "clerk",
+      "permission_id": 21,
+      "scope": "all"
+    },
+    {
+      "id": 44,
+      "role": "clerk",
+      "permission_id": 24,
+      "scope": "all"
+    },
+    {
+      "id": 45,
+      "role": "clerk",
+      "permission_id": 25,
+      "scope": "all"
+    },
+    {
+      "id": 46,
+      "role": "clerk",
+      "permission_id": 27,
+      "scope": "all"
+    },
+    {
+      "id": 47,
+      "role": "teacher",
+      "permission_id": 4,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 48,
+      "role": "teacher",
+      "permission_id": 9,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 49,
+      "role": "teacher",
+      "permission_id": 13,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 50,
+      "role": "teacher",
+      "permission_id": 16,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 51,
+      "role": "teacher",
+      "permission_id": 17,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 52,
+      "role": "teacher",
+      "permission_id": 21,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 53,
+      "role": "teacher",
+      "permission_id": 27,
+      "scope": "assigned_groups"
+    },
+    {
+      "id": 54,
+      "role": "student",
+      "permission_id": 5,
+      "scope": "self"
+    },
+    {
+      "id": 55,
+      "role": "student",
+      "permission_id": 14,
+      "scope": "self"
+    },
+    {
+      "id": 56,
+      "role": "student",
+      "permission_id": 18,
+      "scope": "self"
+    },
+    {
+      "id": 57,
+      "role": "student",
+      "permission_id": 22,
+      "scope": "self"
+    },
+    {
+      "id": 58,
+      "role": "student",
+      "permission_id": 25,
+      "scope": "self"
+    },
+    {
+      "id": 59,
+      "role": "parent",
+      "permission_id": 28,
+      "scope": "children"
+    },
+    {
+      "id": 60,
+      "role": "parent",
+      "permission_id": 29,
+      "scope": "children"
+    },
+    {
+      "id": 61,
+      "role": "parent",
+      "permission_id": 30,
+      "scope": "children"
+    },
+    {
+      "id": 62,
+      "role": "parent",
+      "permission_id": 19,
+      "scope": "children"
+    },
+    {
+      "id": 63,
+      "role": "parent",
+      "permission_id": 23,
+      "scope": "children"
+    },
+    {
+      "id": 64,
+      "role": "parent",
+      "permission_id": 27,
+      "scope": "children"
+    }
+  ],
+  "userStudentLinks": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "user_id": 4,
+      "student_id": 13,
+      "relationship": "guardian",
+      "is_primary": 1,
+      "created_at": "2026-06-25T08:08:16.736Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "user_id": 4,
+      "student_id": 14,
+      "relationship": "guardian",
+      "is_primary": 1,
+      "created_at": "2026-06-25T08:09:08.894Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "user_id": 4,
+      "student_id": 15,
+      "relationship": "guardian",
+      "is_primary": 1,
+      "created_at": "2026-06-25T08:09:08.895Z"
+    },
+    {
+      "id": 6,
+      "organization_id": 1,
+      "user_id": 4,
+      "student_id": 18,
+      "relationship": "guardian",
+      "is_primary": 1,
+      "created_at": "2026-06-25T08:09:11.279Z"
+    }
+  ],
+  "parents": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "first_name": "Parent",
+      "last_name": "User",
+      "email": "parent@institute.local",
+      "phone": null,
+      "user_id": 4,
+      "status": "active",
+      "client_id": null,
+      "created_at": "2026-06-25T08:08:16.737Z",
+      "updated_at": "2026-06-25T08:08:16.737Z"
+    }
+  ],
+  "parentStudentMappings": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "parent_id": 1,
+      "student_id": 13,
+      "relationship_type": "guardian",
+      "is_primary_contact": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T08:08:16.738Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "parent_id": 1,
+      "student_id": 14,
+      "relationship_type": "guardian",
+      "is_primary_contact": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.894Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "parent_id": 1,
+      "student_id": 15,
+      "relationship_type": "guardian",
+      "is_primary_contact": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.895Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "parent_id": 1,
+      "student_id": 18,
+      "relationship_type": "guardian",
+      "is_primary_contact": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:11.280Z"
+    }
+  ],
+  "parentNotificationPreferences": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "parent_id": 1,
+      "email_enabled": 1,
+      "sms_enabled": 0,
+      "push_enabled": 0,
+      "event_assigned": 1,
+      "certificate_issued": 1,
+      "award_added": 1,
+      "attendance_alert": 1,
+      "client_id": null,
+      "updated_at": "2026-06-25T08:08:16.738Z"
+    }
+  ],
+  "teacherGroupAssignments": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "user_id": 3,
+      "group_id": 3
     }
   ],
   "studentGroups": [
@@ -49,6 +783,56 @@
       "is_default": 0,
       "client_id": null,
       "created_at": "2026-06-24T08:57:41.729Z"
+    }
+  ],
+  "groupStudents": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "group_id": 2,
+      "student_id": 14,
+      "assigned_at": "2026-06-25T08:09:08.857Z",
+      "assigned_by": 1
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "group_id": 2,
+      "student_id": 15,
+      "assigned_at": "2026-06-25T08:09:08.858Z",
+      "assigned_by": 1
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "group_id": 3,
+      "student_id": 16,
+      "assigned_at": "2026-06-25T08:09:08.858Z",
+      "assigned_by": 1
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "group_id": 3,
+      "student_id": 17,
+      "assigned_at": "2026-06-25T08:09:08.859Z",
+      "assigned_by": 1
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "group_id": 1,
+      "student_id": 18,
+      "assigned_at": "2026-06-25T08:09:08.860Z",
+      "assigned_by": 1
+    },
+    {
+      "id": 6,
+      "organization_id": 1,
+      "group_id": 1,
+      "student_id": 19,
+      "assigned_at": "2026-06-25T08:09:08.860Z",
+      "assigned_by": 1
     }
   ],
   "students": [
@@ -291,6 +1075,132 @@
       "client_id": 13,
       "created_at": "2026-06-24T12:39:45.938Z",
       "updated_at": "2026-06-24T12:39:45.938Z"
+    },
+    {
+      "id": 14,
+      "organization_id": 1,
+      "name": "Rahul Kumar",
+      "class": "10",
+      "roll_no": "001",
+      "mobile": "9876543210",
+      "address": "Noida, Uttar Pradesh",
+      "admission_no": "DEMO-SEED-001",
+      "parent_name": "Parent User",
+      "parent_mobile": "9876543211",
+      "academic_year": "2025-26",
+      "section": "A",
+      "status": "active",
+      "fee_status": "paid",
+      "group_id": 2,
+      "custom_data": null,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.857Z",
+      "updated_at": "2026-06-25T08:09:08.857Z"
+    },
+    {
+      "id": 15,
+      "organization_id": 1,
+      "name": "Priya Sharma",
+      "class": "10",
+      "roll_no": "002",
+      "mobile": "9876500002",
+      "address": "Noida, Uttar Pradesh",
+      "admission_no": "DEMO-SEED-002",
+      "parent_name": "Parent User",
+      "parent_mobile": "9876543211",
+      "academic_year": "2025-26",
+      "section": "A",
+      "status": "active",
+      "fee_status": "paid",
+      "group_id": 2,
+      "custom_data": null,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.858Z",
+      "updated_at": "2026-06-25T08:09:08.858Z"
+    },
+    {
+      "id": 16,
+      "organization_id": 1,
+      "name": "Arjun Mehta",
+      "class": "9",
+      "roll_no": "003",
+      "mobile": "9876500003",
+      "address": "Noida, Uttar Pradesh",
+      "admission_no": "DEMO-SEED-003",
+      "parent_name": "Raj Mehta",
+      "parent_mobile": "9876500103",
+      "academic_year": "2025-26",
+      "section": "B",
+      "status": "active",
+      "fee_status": "partial",
+      "group_id": 3,
+      "custom_data": null,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.858Z",
+      "updated_at": "2026-06-25T08:09:08.858Z"
+    },
+    {
+      "id": 17,
+      "organization_id": 1,
+      "name": "Sneha Reddy",
+      "class": "9",
+      "roll_no": "004",
+      "mobile": "9876500004",
+      "address": "Noida, Uttar Pradesh",
+      "admission_no": "DEMO-SEED-004",
+      "parent_name": "Lakshmi Reddy",
+      "parent_mobile": "9876500104",
+      "academic_year": "2025-26",
+      "section": "B",
+      "status": "active",
+      "fee_status": "paid",
+      "group_id": 3,
+      "custom_data": null,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.859Z",
+      "updated_at": "2026-06-25T08:09:08.859Z"
+    },
+    {
+      "id": 18,
+      "organization_id": 1,
+      "name": "Vikram Singh",
+      "class": "8",
+      "roll_no": "005",
+      "mobile": "9876500005",
+      "address": "Noida, Uttar Pradesh",
+      "admission_no": "DEMO-SEED-005",
+      "parent_name": "Harpreet Singh",
+      "parent_mobile": "9876500105",
+      "academic_year": "2025-26",
+      "section": "C",
+      "status": "active",
+      "fee_status": "overdue",
+      "group_id": 1,
+      "custom_data": null,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.860Z",
+      "updated_at": "2026-06-25T08:09:08.860Z"
+    },
+    {
+      "id": 19,
+      "organization_id": 1,
+      "name": "Ananya Patel",
+      "class": "8",
+      "roll_no": "006",
+      "mobile": "9876500006",
+      "address": "Noida, Uttar Pradesh",
+      "admission_no": "DEMO-SEED-006",
+      "parent_name": "Meera Patel",
+      "parent_mobile": "9876500106",
+      "academic_year": "2025-26",
+      "section": "C",
+      "status": "active",
+      "fee_status": "paid",
+      "group_id": 1,
+      "custom_data": null,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.860Z",
+      "updated_at": "2026-06-25T08:09:08.860Z"
     }
   ],
   "studentActivities": [
@@ -448,6 +1358,1443 @@
       "user_id": 2
     }
   ],
+  "events": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "title": "Annual Day 2026",
+      "description": "School annual cultural program",
+      "event_type": "cultural",
+      "start_date": "2026-07-09",
+      "end_date": "2026-07-09",
+      "location": "Main Auditorium",
+      "group_id": 2,
+      "created_by": 1,
+      "status": "published",
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.884Z",
+      "updated_at": "2026-06-25T08:09:08.884Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "title": "Science Fair",
+      "description": "Inter-class science exhibition",
+      "event_type": "academic",
+      "start_date": "2026-07-02",
+      "end_date": "2026-07-02",
+      "location": "Science Block",
+      "group_id": 2,
+      "created_by": 1,
+      "status": "published",
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.884Z",
+      "updated_at": "2026-06-25T08:09:08.884Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "title": "Parent-Teacher Meeting",
+      "description": "Term review with parents",
+      "event_type": "meeting",
+      "start_date": "2026-06-18",
+      "end_date": "2026-06-18",
+      "location": "Classrooms",
+      "group_id": null,
+      "created_by": 1,
+      "status": "published",
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.884Z",
+      "updated_at": "2026-06-25T08:09:08.884Z"
+    }
+  ],
+  "eventParticipants": [
+    {
+      "id": 1,
+      "event_id": 1,
+      "student_id": 14,
+      "registration_status": "registered"
+    },
+    {
+      "id": 2,
+      "event_id": 1,
+      "student_id": 15,
+      "registration_status": "registered"
+    },
+    {
+      "id": 3,
+      "event_id": 1,
+      "student_id": 16,
+      "registration_status": "registered"
+    },
+    {
+      "id": 4,
+      "event_id": 2,
+      "student_id": 14,
+      "registration_status": "registered"
+    },
+    {
+      "id": 5,
+      "event_id": 2,
+      "student_id": 15,
+      "registration_status": "registered"
+    },
+    {
+      "id": 6,
+      "event_id": 2,
+      "student_id": 16,
+      "registration_status": "registered"
+    },
+    {
+      "id": 7,
+      "event_id": 3,
+      "student_id": 14,
+      "registration_status": "registered"
+    },
+    {
+      "id": 8,
+      "event_id": 3,
+      "student_id": 15,
+      "registration_status": "registered"
+    },
+    {
+      "id": 9,
+      "event_id": 3,
+      "student_id": 16,
+      "registration_status": "registered"
+    }
+  ],
+  "attendanceRecords": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-24",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.861Z",
+      "updated_at": "2026-06-25T08:09:08.861Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-23",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.862Z",
+      "updated_at": "2026-06-25T08:09:08.862Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-22",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.862Z",
+      "updated_at": "2026-06-25T08:09:08.862Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-19",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.862Z",
+      "updated_at": "2026-06-25T08:09:08.862Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-18",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.862Z",
+      "updated_at": "2026-06-25T08:09:08.862Z"
+    },
+    {
+      "id": 6,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-17",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.863Z",
+      "updated_at": "2026-06-25T08:09:08.863Z"
+    },
+    {
+      "id": 7,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-16",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.863Z",
+      "updated_at": "2026-06-25T08:09:08.863Z"
+    },
+    {
+      "id": 8,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-15",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "late",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.863Z",
+      "updated_at": "2026-06-25T08:09:08.863Z"
+    },
+    {
+      "id": 9,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-12",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.864Z",
+      "updated_at": "2026-06-25T08:09:08.864Z"
+    },
+    {
+      "id": 10,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-11",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.864Z",
+      "updated_at": "2026-06-25T08:09:08.864Z"
+    },
+    {
+      "id": 11,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-10",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.864Z",
+      "updated_at": "2026-06-25T08:09:08.864Z"
+    },
+    {
+      "id": 12,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-09",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "late",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.865Z",
+      "updated_at": "2026-06-25T08:09:08.865Z"
+    },
+    {
+      "id": 13,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-08",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "excused",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.865Z",
+      "updated_at": "2026-06-25T08:09:08.865Z"
+    },
+    {
+      "id": 14,
+      "organization_id": 1,
+      "student_id": 14,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-05",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.865Z",
+      "updated_at": "2026-06-25T08:09:08.865Z"
+    },
+    {
+      "id": 15,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-24",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.866Z",
+      "updated_at": "2026-06-25T08:09:08.866Z"
+    },
+    {
+      "id": 16,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-23",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.867Z",
+      "updated_at": "2026-06-25T08:09:08.867Z"
+    },
+    {
+      "id": 17,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-22",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.867Z",
+      "updated_at": "2026-06-25T08:09:08.867Z"
+    },
+    {
+      "id": 18,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-19",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.867Z",
+      "updated_at": "2026-06-25T08:09:08.867Z"
+    },
+    {
+      "id": 19,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-18",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.868Z",
+      "updated_at": "2026-06-25T08:09:08.868Z"
+    },
+    {
+      "id": 20,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-17",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.868Z",
+      "updated_at": "2026-06-25T08:09:08.868Z"
+    },
+    {
+      "id": 21,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-16",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.869Z",
+      "updated_at": "2026-06-25T08:09:08.869Z"
+    },
+    {
+      "id": 22,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-15",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "late",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.869Z",
+      "updated_at": "2026-06-25T08:09:08.869Z"
+    },
+    {
+      "id": 23,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-12",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.869Z",
+      "updated_at": "2026-06-25T08:09:08.869Z"
+    },
+    {
+      "id": 24,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-11",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.870Z",
+      "updated_at": "2026-06-25T08:09:08.870Z"
+    },
+    {
+      "id": 25,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-10",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.870Z",
+      "updated_at": "2026-06-25T08:09:08.870Z"
+    },
+    {
+      "id": 26,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-09",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "late",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.871Z",
+      "updated_at": "2026-06-25T08:09:08.871Z"
+    },
+    {
+      "id": 27,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-08",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "excused",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.871Z",
+      "updated_at": "2026-06-25T08:09:08.871Z"
+    },
+    {
+      "id": 28,
+      "organization_id": 1,
+      "student_id": 15,
+      "group_id": 2,
+      "event_id": null,
+      "attendance_date": "2026-06-05",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.871Z",
+      "updated_at": "2026-06-25T08:09:08.871Z"
+    },
+    {
+      "id": 29,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-24",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.872Z",
+      "updated_at": "2026-06-25T08:09:08.872Z"
+    },
+    {
+      "id": 30,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-23",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.873Z",
+      "updated_at": "2026-06-25T08:09:08.873Z"
+    },
+    {
+      "id": 31,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-22",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.873Z",
+      "updated_at": "2026-06-25T08:09:08.873Z"
+    },
+    {
+      "id": 32,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-19",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.873Z",
+      "updated_at": "2026-06-25T08:09:08.873Z"
+    },
+    {
+      "id": 33,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-18",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.874Z",
+      "updated_at": "2026-06-25T08:09:08.874Z"
+    },
+    {
+      "id": 34,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-17",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.875Z",
+      "updated_at": "2026-06-25T08:09:08.875Z"
+    },
+    {
+      "id": 35,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-16",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.875Z",
+      "updated_at": "2026-06-25T08:09:08.875Z"
+    },
+    {
+      "id": 36,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-15",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "late",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.875Z",
+      "updated_at": "2026-06-25T08:09:08.875Z"
+    },
+    {
+      "id": 37,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-12",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.876Z",
+      "updated_at": "2026-06-25T08:09:08.876Z"
+    },
+    {
+      "id": 38,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-11",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.876Z",
+      "updated_at": "2026-06-25T08:09:08.876Z"
+    },
+    {
+      "id": 39,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-10",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.877Z",
+      "updated_at": "2026-06-25T08:09:08.877Z"
+    },
+    {
+      "id": 40,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-09",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "late",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.877Z",
+      "updated_at": "2026-06-25T08:09:08.877Z"
+    },
+    {
+      "id": 41,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-08",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "excused",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.877Z",
+      "updated_at": "2026-06-25T08:09:08.877Z"
+    },
+    {
+      "id": 42,
+      "organization_id": 1,
+      "student_id": 16,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-05",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.878Z",
+      "updated_at": "2026-06-25T08:09:08.878Z"
+    },
+    {
+      "id": 43,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-24",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.878Z",
+      "updated_at": "2026-06-25T08:09:08.878Z"
+    },
+    {
+      "id": 44,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-23",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.878Z",
+      "updated_at": "2026-06-25T08:09:08.878Z"
+    },
+    {
+      "id": 45,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-22",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.879Z",
+      "updated_at": "2026-06-25T08:09:08.879Z"
+    },
+    {
+      "id": 46,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-19",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.879Z",
+      "updated_at": "2026-06-25T08:09:08.879Z"
+    },
+    {
+      "id": 47,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-18",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.880Z",
+      "updated_at": "2026-06-25T08:09:08.880Z"
+    },
+    {
+      "id": 48,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-17",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.880Z",
+      "updated_at": "2026-06-25T08:09:08.880Z"
+    },
+    {
+      "id": 49,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-16",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.880Z",
+      "updated_at": "2026-06-25T08:09:08.880Z"
+    },
+    {
+      "id": 50,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-15",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "late",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.881Z",
+      "updated_at": "2026-06-25T08:09:08.881Z"
+    },
+    {
+      "id": 51,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-12",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.881Z",
+      "updated_at": "2026-06-25T08:09:08.881Z"
+    },
+    {
+      "id": 52,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-11",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.881Z",
+      "updated_at": "2026-06-25T08:09:08.881Z"
+    },
+    {
+      "id": 53,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-10",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "absent",
+      "remarks": "Uninformed absence",
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.882Z",
+      "updated_at": "2026-06-25T08:09:08.882Z"
+    },
+    {
+      "id": 54,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-09",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "late",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.882Z",
+      "updated_at": "2026-06-25T08:09:08.882Z"
+    },
+    {
+      "id": 55,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-08",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "excused",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.883Z",
+      "updated_at": "2026-06-25T08:09:08.883Z"
+    },
+    {
+      "id": 56,
+      "organization_id": 1,
+      "student_id": 17,
+      "group_id": 3,
+      "event_id": null,
+      "attendance_date": "2026-06-05",
+      "context_type": "daily",
+      "period_number": null,
+      "status": "present",
+      "remarks": null,
+      "marked_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.883Z",
+      "updated_at": "2026-06-25T08:09:08.883Z"
+    }
+  ],
+  "customFieldDefinitions": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "entity_type": "student",
+      "field_name": "blood_group",
+      "field_label": "Blood Group",
+      "field_type": "dropdown",
+      "is_required": 0,
+      "default_value": null,
+      "validation_rules_json": "{\"options\":[{\"value\":\"A+\",\"label\":\"A+\"},{\"value\":\"B+\",\"label\":\"B+\"},{\"value\":\"O+\",\"label\":\"O+\"},{\"value\":\"AB+\",\"label\":\"AB+\"},{\"value\":\"A-\",\"label\":\"A-\"},{\"value\":\"B-\",\"label\":\"B-\"},{\"value\":\"O-\",\"label\":\"O-\"},{\"value\":\"AB-\",\"label\":\"AB-\"}]}",
+      "display_order": 1,
+      "is_active": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T05:39:06.072Z",
+      "updated_at": "2026-06-25T05:39:06.072Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "entity_type": "student",
+      "field_name": "house_name",
+      "field_label": "House Name",
+      "field_type": "dropdown",
+      "is_required": 0,
+      "default_value": null,
+      "validation_rules_json": "{\"options\":[{\"value\":\"red\",\"label\":\"Red House\"},{\"value\":\"blue\",\"label\":\"Blue House\"},{\"value\":\"green\",\"label\":\"Green House\"},{\"value\":\"yellow\",\"label\":\"Yellow House\"}]}",
+      "display_order": 2,
+      "is_active": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T05:39:06.073Z",
+      "updated_at": "2026-06-25T05:39:06.073Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "entity_type": "student",
+      "field_name": "bus_route",
+      "field_label": "Bus Route",
+      "field_type": "text",
+      "is_required": 0,
+      "default_value": null,
+      "validation_rules_json": null,
+      "display_order": 3,
+      "is_active": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T05:39:06.074Z",
+      "updated_at": "2026-06-25T05:39:06.074Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "entity_type": "student",
+      "field_name": "scholarship_type",
+      "field_label": "Scholarship Type",
+      "field_type": "text",
+      "is_required": 0,
+      "default_value": null,
+      "validation_rules_json": null,
+      "display_order": 4,
+      "is_active": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T05:39:06.074Z",
+      "updated_at": "2026-06-25T05:39:06.074Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "entity_type": "student",
+      "field_name": "admission_category",
+      "field_label": "Admission Category",
+      "field_type": "dropdown",
+      "is_required": 0,
+      "default_value": null,
+      "validation_rules_json": "{\"options\":[{\"value\":\"general\",\"label\":\"General\"},{\"value\":\"reserved\",\"label\":\"Reserved\"},{\"value\":\"management\",\"label\":\"Management Quota\"}]}",
+      "display_order": 5,
+      "is_active": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T05:39:06.075Z",
+      "updated_at": "2026-06-25T05:39:06.075Z"
+    }
+  ],
+  "customFieldValues": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "field_definition_id": 1,
+      "entity_type": "student",
+      "entity_id": 1,
+      "value_text": "A+",
+      "client_id": null,
+      "updated_at": "2026-06-25T08:54:05.170Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "field_definition_id": 2,
+      "entity_type": "student",
+      "entity_id": 1,
+      "value_text": "blue",
+      "client_id": null,
+      "updated_at": "2026-06-25T08:54:05.175Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "field_definition_id": 3,
+      "entity_type": "student",
+      "entity_id": 1,
+      "value_text": "5",
+      "client_id": null,
+      "updated_at": "2026-06-25T08:54:05.177Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "field_definition_id": 4,
+      "entity_type": "student",
+      "entity_id": 1,
+      "value_text": "NA",
+      "client_id": null,
+      "updated_at": "2026-06-25T08:54:05.180Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "field_definition_id": 5,
+      "entity_type": "student",
+      "entity_id": 1,
+      "value_text": "management",
+      "client_id": null,
+      "updated_at": "2026-06-25T08:54:05.182Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "entity_type": "custom_field_definition",
+      "entity_id": 1,
+      "action": "create",
+      "changes_json": "{\"fieldName\":\"blood_group\",\"fieldLabel\":\"Blood Group\"}",
+      "user_id": null,
+      "created_at": "2026-06-25T05:39:06.073Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "entity_type": "custom_field_definition",
+      "entity_id": 2,
+      "action": "create",
+      "changes_json": "{\"fieldName\":\"house_name\",\"fieldLabel\":\"House Name\"}",
+      "user_id": null,
+      "created_at": "2026-06-25T05:39:06.074Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "entity_type": "custom_field_definition",
+      "entity_id": 3,
+      "action": "create",
+      "changes_json": "{\"fieldName\":\"bus_route\",\"fieldLabel\":\"Bus Route\"}",
+      "user_id": null,
+      "created_at": "2026-06-25T05:39:06.074Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "entity_type": "custom_field_definition",
+      "entity_id": 4,
+      "action": "create",
+      "changes_json": "{\"fieldName\":\"scholarship_type\",\"fieldLabel\":\"Scholarship Type\"}",
+      "user_id": null,
+      "created_at": "2026-06-25T05:39:06.074Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "entity_type": "custom_field_definition",
+      "entity_id": 5,
+      "action": "create",
+      "changes_json": "{\"fieldName\":\"admission_category\",\"fieldLabel\":\"Admission Category\"}",
+      "user_id": null,
+      "created_at": "2026-06-25T05:39:06.075Z"
+    },
+    {
+      "id": 6,
+      "organization_id": 1,
+      "entity_type": "student",
+      "entity_id": 1,
+      "action": "custom_fields_update",
+      "changes_json": "{\"fields\":[\"blood_group\",\"house_name\",\"bus_route\",\"scholarship_type\",\"admission_category\"]}",
+      "user_id": 2,
+      "created_at": "2026-06-25T08:52:35.115Z"
+    },
+    {
+      "id": 7,
+      "organization_id": 1,
+      "entity_type": "voice_entry",
+      "entity_id": 3,
+      "action": "create",
+      "changes_json": "{\"moduleCode\":\"student\",\"studentId\":1,\"status\":\"saved\"}",
+      "user_id": 2,
+      "created_at": "2026-06-25T08:52:35.133Z"
+    },
+    {
+      "id": 8,
+      "organization_id": 1,
+      "entity_type": "student",
+      "entity_id": 1,
+      "action": "custom_fields_update",
+      "changes_json": "{\"fields\":[\"blood_group\",\"house_name\",\"bus_route\",\"scholarship_type\",\"admission_category\"]}",
+      "user_id": 2,
+      "created_at": "2026-06-25T08:54:05.185Z"
+    }
+  ],
+  "certificateTemplates": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "name": "Academic Excellence",
+      "description": "Default Academic Excellence template",
+      "certificate_type": "merit",
+      "template_url": null,
+      "is_active": 1,
+      "created_by": null,
+      "client_id": null,
+      "created_at": "2026-06-25T06:02:49.241Z",
+      "updated_at": "2026-06-25T06:02:49.241Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "name": "Course Completion",
+      "description": "Default Course Completion template",
+      "certificate_type": "completion",
+      "template_url": null,
+      "is_active": 1,
+      "created_by": null,
+      "client_id": null,
+      "created_at": "2026-06-25T06:02:49.241Z",
+      "updated_at": "2026-06-25T06:02:49.241Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "name": "Sports Achievement",
+      "description": "Default Sports Achievement template",
+      "certificate_type": "achievement",
+      "template_url": null,
+      "is_active": 1,
+      "created_by": null,
+      "client_id": null,
+      "created_at": "2026-06-25T06:02:49.241Z",
+      "updated_at": "2026-06-25T06:02:49.241Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "name": "Perfect Attendance",
+      "description": "Default Perfect Attendance template",
+      "certificate_type": "participation",
+      "template_url": null,
+      "is_active": 1,
+      "created_by": null,
+      "client_id": null,
+      "created_at": "2026-06-25T06:02:49.241Z",
+      "updated_at": "2026-06-25T06:02:49.241Z"
+    }
+  ],
+  "certificates": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "student_id": 14,
+      "template_id": null,
+      "certificate_number": "CERT-1-2026-000001",
+      "certificate_type": "merit",
+      "title": "Certificate of Merit — Mathematics",
+      "description": "Awarded to Rahul Kumar",
+      "certificate_name": "Certificate of Merit — Mathematics",
+      "award_type": "merit",
+      "issue_date": "2026-05-26",
+      "issued_by": "Institute Admin",
+      "attachment_url": null,
+      "verification_code": "CERT-DEMO-SEED-1",
+      "status": "issued",
+      "revoked_at": null,
+      "revoked_by": null,
+      "revoke_reason": null,
+      "created_by": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.889Z",
+      "updated_at": "2026-06-25T08:09:08.889Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "student_id": 14,
+      "template_id": null,
+      "certificate_number": "CERT-1-2026-000002",
+      "certificate_type": "participation",
+      "title": "Certificate of Participation — Science Fair",
+      "description": "Awarded to Rahul Kumar",
+      "certificate_name": "Certificate of Participation — Science Fair",
+      "award_type": "participation",
+      "issue_date": "2026-06-18",
+      "issued_by": "Institute Admin",
+      "attachment_url": null,
+      "verification_code": "CERT-DEMO-SEED-2",
+      "status": "issued",
+      "revoked_at": null,
+      "revoked_by": null,
+      "revoke_reason": null,
+      "created_by": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.889Z",
+      "updated_at": "2026-06-25T08:09:08.889Z"
+    }
+  ],
+  "awards": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "student_id": 14,
+      "category": "attendance",
+      "title": "Best Attendance — Term 1",
+      "description": "Demo award for Rahul Kumar",
+      "award_date": "2026-06-05",
+      "issued_by": "Institute Admin",
+      "attachment_url": null,
+      "certificate_id": null,
+      "status": "issued",
+      "recommended_by": null,
+      "verification_code": "AWD-DEMO-SEED-1",
+      "created_by": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.889Z",
+      "updated_at": "2026-06-25T08:09:08.889Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "student_id": 14,
+      "category": "academic",
+      "title": "Science Quiz Winner",
+      "description": "Demo award for Rahul Kumar",
+      "award_date": "2026-06-15",
+      "issued_by": "Institute Admin",
+      "attachment_url": null,
+      "certificate_id": null,
+      "status": "issued",
+      "recommended_by": null,
+      "verification_code": "AWD-DEMO-SEED-2",
+      "created_by": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.889Z",
+      "updated_at": "2026-06-25T08:09:08.889Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "student_id": 14,
+      "category": "sports",
+      "title": "Inter-house Sports Silver",
+      "description": "Demo award for Rahul Kumar",
+      "award_date": "2026-06-20",
+      "issued_by": "Institute Admin",
+      "attachment_url": null,
+      "certificate_id": null,
+      "status": "issued",
+      "recommended_by": null,
+      "verification_code": "AWD-DEMO-SEED-3",
+      "created_by": 1,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.889Z",
+      "updated_at": "2026-06-25T08:09:08.889Z"
+    }
+  ],
+  "voiceEntries": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "student_id": 14,
+      "entity_type": "student",
+      "entity_id": 14,
+      "module_code": "student",
+      "transcript": "Rahul Kumar class 10 roll 001 mobile 9876543210 address Noida",
+      "processed_json": "{\"studentName\":\"Rahul Kumar\"}",
+      "audio_url": null,
+      "speech_engine": "web-speech",
+      "status": "saved",
+      "created_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.892Z",
+      "modified_at": "2026-06-25T08:09:08.892Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "student_id": 14,
+      "entity_type": "student",
+      "entity_id": 14,
+      "module_code": "attendance",
+      "transcript": "Mark Rahul Kumar present for today daily attendance",
+      "processed_json": "{\"studentName\":\"Rahul Kumar\"}",
+      "audio_url": null,
+      "speech_engine": "web-speech",
+      "status": "processed",
+      "created_by": 2,
+      "client_id": null,
+      "created_at": "2026-06-25T08:09:08.892Z",
+      "modified_at": "2026-06-25T08:09:08.892Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "student_id": 1,
+      "entity_type": "student",
+      "entity_id": 1,
+      "module_code": "student",
+      "transcript": "name nandkishor class 10 roll number 420 131 adress 353 Noida 53 admission number 255 Parent name Hari bhajan Singh parent mobile number 1234 56789",
+      "processed_json": "{\"name\":\"nandkishor\",\"class\":\"s 10\",\"rollNo\":\"420131\",\"address\":\"ess 353 Noida 53\",\"admissionNo\":\"255\",\"parentName\":\"Hari bhajan Singh\",\"parentMobile\":\"\",\"mobile\":\"1234567892\",\"academicYear\":\"2026-2027\",\"section\":\"\",\"status\":\"new_admission\",\"feeStatus\":\"not_applicable\"}",
+      "audio_url": null,
+      "speech_engine": "web-speech",
+      "status": "saved",
+      "created_by": 2,
+      "client_id": 1782377555125,
+      "created_at": "2026-06-25T08:52:35.130Z",
+      "modified_at": "2026-06-25T08:52:35.130Z"
+    }
+  ],
+  "voiceEntryEdits": [],
   "lookups": {
     "class": [
       {
@@ -613,9 +2960,29 @@
     ]
   },
   "nextIds": {
-    "users": 4,
+    "users": 6,
     "studentGroups": 4,
-    "students": 14,
-    "studentActivities": 21
+    "students": 20,
+    "studentActivities": 21,
+    "organizations": 1,
+    "permissions": 1,
+    "rolePermissions": 1,
+    "userStudentLinks": 42,
+    "parents": 2,
+    "parentStudentMappings": 5,
+    "parentNotificationPreferences": 2,
+    "groupStudents": 7,
+    "teacherGroupAssignments": 2,
+    "events": 4,
+    "eventParticipants": 10,
+    "attendanceRecords": 57,
+    "certificateTemplates": 5,
+    "certificates": 3,
+    "awards": 4,
+    "voiceEntries": 4,
+    "voiceEntryEdits": 1,
+    "customFieldDefinitions": 6,
+    "customFieldValues": 11,
+    "auditLogs": 9
   }
 }

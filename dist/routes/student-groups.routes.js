@@ -16,7 +16,7 @@ router.get('/', (_req, res) => {
     }));
     res.json(groups);
 });
-router.post('/', (0, auth_middleware_1.requireRoles)('admin', 'admission_clerk'), (req, res) => {
+router.post('/', (0, auth_middleware_1.requirePermission)('group', 'create'), (req, res) => {
     const { name, description, clientId } = req.body;
     if (!name?.trim()) {
         res.status(400).json({ error: 'Group name is required' });
@@ -31,6 +31,35 @@ router.post('/', (0, auth_middleware_1.requireRoles)('admin', 'admission_clerk')
         clientId: created.client_id,
         createdDate: created.created_at,
     });
+});
+router.put('/:id', (0, auth_middleware_1.requirePermission)('group', 'modify'), (req, res) => {
+    const { name, description } = req.body;
+    if (!name?.trim()) {
+        res.status(400).json({ error: 'Group name is required' });
+        return;
+    }
+    const updated = (0, student_service_1.updateGroup)(Number(req.params.id), name.trim(), description?.trim());
+    if (!updated) {
+        res.status(404).json({ error: 'Group not found' });
+        return;
+    }
+    res.json({
+        id: updated.id,
+        name: updated.name,
+        description: updated.description,
+        isDefault: !!updated.is_default,
+        clientId: updated.client_id,
+        createdDate: updated.created_at,
+    });
+});
+router.post('/:id/assign-students', (0, auth_middleware_1.requirePermission)('group', 'assign'), (req, res) => {
+    const { studentIds } = req.body;
+    if (!studentIds?.length) {
+        res.status(400).json({ error: 'studentIds array is required' });
+        return;
+    }
+    const count = (0, student_service_1.assignStudentsToGroup)(Number(req.params.id), studentIds, req.user?.id);
+    res.json({ success: true, assignedCount: count });
 });
 router.delete('/:id', (0, auth_middleware_1.requireRoles)('admin'), (req, res) => {
     const ok = (0, student_service_1.deleteGroup)(Number(req.params.id));

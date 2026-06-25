@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initDatabase = initDatabase;
 exports.getRepository = getRepository;
+exports.resetDatabaseForTests = resetDatabaseForTests;
 exports.loadDb = loadDb;
 exports.saveDb = saveDb;
 exports.nextId = nextId;
@@ -22,6 +23,10 @@ function getRepository() {
         return initDatabase();
     }
     return repository;
+}
+/** Reset singleton between tests (test-only). */
+function resetDatabaseForTests() {
+    repository = null;
 }
 /** @deprecated Use getRepository() instead */
 function loadDb() {

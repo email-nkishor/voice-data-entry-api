@@ -22,6 +22,11 @@ export function getRepository(): DbRepository {
   return repository;
 }
 
+/** Reset singleton between tests (test-only). */
+export function resetDatabaseForTests(): void {
+  repository = null;
+}
+
 /** @deprecated Use getRepository() instead */
 export function loadDb() {
   throw new Error('loadDb() is removed. Use getRepository() with DB_DRIVER=json|sqlite.');
